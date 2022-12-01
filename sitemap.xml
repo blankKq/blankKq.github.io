@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2022/12/01/es6-let/</loc>
+    <loc>https://blankkq.github.io/2022/12/01/es6-let/</loc>
     
     <lastmod>2022-12-01</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/resources/index.html</loc>
+    <loc>https://blankkq.github.io/resources/index.html</loc>
     
     <lastmod>2022-12-01</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>https://blankkq.github.io/about/index.html</loc>
     
     <lastmod>2022-12-01</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>https://blankkq.github.io/tags/index.html</loc>
     
     <lastmod>2022-12-01</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>https://blankkq.github.io/categories/index.html</loc>
     
     <lastmod>2022-12-01</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/12/01/whitespace/</loc>
+    <loc>https://blankkq.github.io/2022/12/01/whitespace/</loc>
     
     <lastmod>2022-12-01</lastmod>
     
@@ -57,7 +57,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://blankkq.github.io/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -67,14 +67,14 @@
 
   
   <url>
-    <loc>http://example.com/categories/es6/</loc>
+    <loc>https://blankkq.github.io/categories/es6/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
+    <loc>https://blankkq.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/</loc>
     <lastmod>2022-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
