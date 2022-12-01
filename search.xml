@@ -4,6 +4,82 @@
   
     
     <entry>
+      <title>如何判断一个字符串格式是否为JSON字符串</title>
+      <link href="/2022/12/01/isJsonString/"/>
+      <url>/2022/12/01/isJsonString/</url>
+      
+        <content type="html"><![CDATA[<h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isJSON</span>(<span class="params">str</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> str == <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> obj=<span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br><span class="line">            <span class="keyword">if</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(obj) == <span class="string">&#x27;[object Object]&#x27;</span> &amp;&amp; obj )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error：&#x27;</span>+str+<span class="string">&#x27;!!!&#x27;</span>+e);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;It is not a string!&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></h2><p>作者：雷明<br>来源：博客园<br>原文：<a href="https://www.cnblogs.com/lanleiming/p/7096973.html">https://www.cnblogs.com/lanleiming/p/7096973.html</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> javascript </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何为element-ui组件定义的事件添加自己的参数</title>
+      <link href="/2022/12/01/customParameters/"/>
+      <url>/2022/12/01/customParameters/</url>
+      
+        <content type="html"><![CDATA[<p>我们在使用element-ui组件的时候，该如何为element-ui中定义好的事件添加一些自己的参数呢？</p><p>废话不多说，直接看代码：<br>这是一个简单的应用，在我们选中按钮的时候，需用将他的名字也传递过去</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">&lt;div v-for=&quot;(item, index) in items&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">&lt;el-radio @change=&quot;(data) =&gt; &#123;getdata(item.name, data)&#125;&quot; v-model=&quot;radio&quot; label=&quot;1&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/el-radio&gt;</span><br><span class="line">&lt;el-radio v-model=&quot;radio&quot; label=&quot;2&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/el-radio&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      radio: &quot;1&quot;,</span><br><span class="line">      items: [&#123;name: &#x27;lis&#x27;&#125;, &#123;name: &#x27;13&#x27;&#125;]</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    getdata(index, data) &#123;</span><br><span class="line">      console.log(data, index);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>原理：这里形成了闭包，在点击的时候，会将change事件中默认的参数传递到匿名函数里边，然后再获取到这个参数</p><p>补充：可以使用$event 来获取到事件对象e</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>this.$set的正确使用</title>
+      <link href="/2022/12/01/vueSet/"/>
+      <url>/2022/12/01/vueSet/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>报错： [Vue warn]: Avoid mutating a prop directly since the value will be overwritt</title>
+      <link href="/2022/12/01/overwritt/"/>
+      <url>/2022/12/01/overwritt/</url>
+      
+        <content type="html"><![CDATA[<p>在更改props属性中的值时，会报错：</p><blockquote><p>[Vue warn]: Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop’s value. Prop being mutated: “tableData”</p></blockquote><br><br><p> <strong>原因：</strong> props是单向数据绑定的，当父组件中的值发生变化，会将值传导给子组件，但是不会反过来（在vue2.0中废除了props的双向数据绑定），这是为了子组件无意中修改了父组件中的状态，使应用的数据流变得难以理解 </p><p><strong>解决办法：</strong> 在子组件中复制一个副本：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line"><span class="attr">props</span>:[<span class="string">&#x27;name&#x27;</span>],</span><br><span class="line"><span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="keyword">return</span> &#123;</span><br><span class="line"><span class="attr">sonName</span>: <span class="variable language_">this</span>.<span class="property">name</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><p>将值拷贝到子组件之后再进行操作，如果这里是一个复杂数据类型，则需用使用深拷贝或者JSON来进行拷贝</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> vue </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>es6-let</title>
       <link href="/2022/12/01/es6-let/"/>
       <url>/2022/12/01/es6-let/</url>

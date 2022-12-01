@@ -22,17 +22,19 @@
     var CONFIG = {"hostname":"blankkq.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="blank个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="blank">
-<meta property="og:url" content="https://blankkq.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/index.html">
+  <meta name="description" content="我们在使用element-ui组件的时候，该如何为element-ui中定义好的事件添加一些自己的参数呢？ 废话不多说，直接看代码：这是一个简单的应用，在我们选中按钮的时候，需用将他的名字也传递过去 12345678&lt;template&gt;	&lt;div class&#x3D;&quot;hello&quot;&gt;		&lt;div v-for&#x3D;&quot;(item, index) in i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何为element-ui组件定义的事件添加自己的参数">
+<meta property="og:url" content="https://blankkq.github.io/2022/12/01/customParameters/index.html">
 <meta property="og:site_name" content="blank">
-<meta property="og:description" content="blank个人博客">
+<meta property="og:description" content="我们在使用element-ui组件的时候，该如何为element-ui中定义好的事件添加一些自己的参数呢？ 废话不多说，直接看代码：这是一个简单的应用，在我们选中按钮的时候，需用将他的名字也传递过去 12345678&lt;template&gt;	&lt;div class&#x3D;&quot;hello&quot;&gt;		&lt;div v-for&#x3D;&quot;(item, index) in i">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-01T15:39:38.000Z">
+<meta property="article:modified_time" content="2022-12-01T15:40:07.891Z">
 <meta property="article:author" content="blank">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blankkq.github.io/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+<link rel="canonical" href="https://blankkq.github.io/2022/12/01/customParameters/">
 
 
 <script id="page-configurations">
@@ -40,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: 小程序 | blank</title>
+  <title>如何为element-ui组件定义的事件添加自己的参数 | blank</title>
   
 
 
@@ -191,57 +193,134 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">小程序
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blankkq.github.io/2022/12/01/customParameters/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="blank">
+      <meta itemprop="description" content="blank个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blank">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何为element-ui组件定义的事件添加自己的参数
+        </h1>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-01 23:39:38 / 修改时间：23:40:07" itemprop="dateCreated datePublished" datetime="2022-12-01T23:39:38+08:00">2022-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <p>我们在使用element-ui组件的时候，该如何为element-ui中定义好的事件添加一些自己的参数呢？</p>
+<p>废话不多说，直接看代码：<br>这是一个简单的应用，在我们选中按钮的时候，需用将他的名字也传递过去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">		&lt;div v-for=&quot;(item, index) in items&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">			&lt;el-radio @change=&quot;(data) =&gt; &#123;getdata(item.name, data)&#125;&quot; v-model=&quot;radio&quot; label=&quot;1&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/el-radio&gt;</span><br><span class="line">			&lt;el-radio v-model=&quot;radio&quot; label=&quot;2&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/el-radio&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      radio: &quot;1&quot;,</span><br><span class="line">      items: [&#123;name: &#x27;lis&#x27;&#125;, &#123;name: &#x27;13&#x27;&#125;]</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    getdata(index, data) &#123;</span><br><span class="line">      console.log(data, index);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>原理：这里形成了闭包，在点击的时候，会将change事件中默认的参数传递到匿名函数里边，然后再获取到这个参数</p>
+<p>补充：可以使用$event 来获取到事件对象e</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-12-01T14:56:27+08:00"
-              content="2022-12-01">
-          12-01
-        </time>
-      </div>
+    
+        
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/12/01/whitespace/" itemprop="url">
-            <span itemprop="name">微信小程序 IOS中new Date()时间格式不兼容问题</span>
-          </a>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>blank
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://blankkq.github.io/2022/12/01/customParameters/" title="如何为element-ui组件定义的事件添加自己的参数">https://blankkq.github.io/2022/12/01/customParameters/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-    </header>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/01/vueSet/" rel="prev" title="this.$set的正确使用">
+      <i class="fa fa-chevron-left"></i> this.$set的正确使用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/12/01/isJsonString/" rel="next" title="如何判断一个字符串格式是否为JSON字符串">
+      如何判断一个字符串格式是否为JSON字符串 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81NzcxOC8zNDE4MQ=="></div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -461,6 +540,21 @@ $(document).ready(function() {
 
   
 
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
 
 </body>
 </html>
