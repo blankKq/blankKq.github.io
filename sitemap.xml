@@ -103,6 +103,13 @@
 
   
   <url>
+    <loc>https://blankkq.github.io/categories/es6/</loc>
+    <lastmod>2022-12-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blankkq.github.io/categories/vue/</loc>
     <lastmod>2022-12-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -111,13 +118,6 @@
   
   <url>
     <loc>https://blankkq.github.io/categories/javascript/</loc>
-    <lastmod>2022-12-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blankkq.github.io/categories/es6/</loc>
     <lastmod>2022-12-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
