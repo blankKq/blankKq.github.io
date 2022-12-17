@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>h5OperatingEnvironment</title>
+      <link href="/2022/12/17/h5OperatingEnvironment/"/>
+      <url>/2022/12/17/h5OperatingEnvironment/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、区分微信、企业微信"><a href="#一、区分微信、企业微信" class="headerlink" title="一、区分微信、企业微信"></a>一、区分微信、企业微信</h2><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><blockquote><p>判断当前页面运行环境为企业微信还是微信</p></blockquote><h3 id="指令代码"><a href="#指令代码" class="headerlink" title="指令代码"></a>指令代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> ua= <span class="variable language_">window</span>.<span class="property">navigator</span>.<span class="property">userAgent</span>.<span class="title function_">toLowerCase</span>();</span><br><span class="line"><span class="keyword">if</span>( (ua.<span class="title function_">match</span>(<span class="regexp">/MicroMessenger/i</span>) == <span class="string">&#x27;micromessenger&#x27;</span>) &amp;&amp; (ua.<span class="title function_">match</span>(<span class="regexp">/wxwork/i</span>) == <span class="string">&#x27;wxwork&#x27;</span>) )&#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;企业微信客户端&quot;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(ua.<span class="title function_">match</span>(<span class="regexp">/micromessenger/i</span>) == <span class="string">&#x27;micromessenger&#x27;</span> )&#123;</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;微信客户端&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="二、区分微信、微博、qq空间"><a href="#二、区分微信、微博、qq空间" class="headerlink" title="二、区分微信、微博、qq空间"></a>二、区分微信、微博、qq空间</h2><h3 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h3><blockquote><p>判断当前运行环境：微信、微博、qq空间</p></blockquote><h3 id="指令代码-1"><a href="#指令代码-1" class="headerlink" title="指令代码"></a>指令代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ua = navigator.<span class="property">userAgent</span>.<span class="title function_">toLowerCase</span>(); <span class="comment">//获取判断用的对象</span></span><br><span class="line"><span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/MicroMessenger/i</span>) == <span class="string">&quot;micromessenger&quot;</span>) &#123;</span><br><span class="line"><span class="comment">//在微信中打开</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/WeiBo/i</span>) == <span class="string">&quot;weibo&quot;</span>) &#123;</span><br><span class="line"><span class="comment">//在新浪微博客户端打开</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/QQ/i</span>) == <span class="string">&quot;qq&quot;</span>) &#123;</span><br><span class="line"><span class="comment">//在QQ空间打开</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="三、区分设备及运行环境"><a href="#三、区分设备及运行环境" class="headerlink" title="三、区分设备及运行环境"></a>三、区分设备及运行环境</h2><h3 id="应用场景-2"><a href="#应用场景-2" class="headerlink" title="应用场景"></a>应用场景</h3><blockquote><p>判断当前设备及运行环境：移动设备、pc端、android、iPhone、是否为微信、微博、qq空间</p></blockquote><h3 id="指令代码-2"><a href="#指令代码-2" class="headerlink" title="指令代码"></a>指令代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> browser = &#123;</span><br><span class="line"><span class="attr">versions</span>:  <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line"><span class="keyword">var</span> u = navigator.<span class="property">userAgent</span>, app = navigator.<span class="property">appVersion</span>; </span><br><span class="line"><span class="keyword">return</span> &#123; <span class="comment">//移动终端浏览器版本信息</span></span><br><span class="line"><span class="attr">trident</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Trident&#x27;</span> ) &gt; -<span class="number">1</span>, <span class="comment">//IE内核</span></span><br><span class="line"><span class="attr">presto</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Presto&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//opera内核</span></span><br><span class="line"> <span class="attr">webKit</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;AppleWebKit&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//苹果、谷歌内核</span></span><br><span class="line"><span class="attr">gecko</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Gecko&#x27;</span> ) &gt; -<span class="number">1</span> &amp;&amp; u.<span class="title function_">indexOf</span>( <span class="string">&#x27;KHTML&#x27;</span> ) == -<span class="number">1</span>,  <span class="comment">//火狐内核</span></span><br><span class="line"><span class="attr">mobile</span>: !!u.<span class="title function_">match</span>(<span class="regexp">/AppleWebKit.*Mobile.*/</span>),  <span class="comment">//是否为移动终端</span></span><br><span class="line"> <span class="attr">ios</span>: !!u.<span class="title function_">match</span>(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">//ios终端</span></span><br><span class="line"><span class="attr">android</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Android&#x27;</span> ) &gt; -<span class="number">1</span> || u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Linux&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//android终端或uc浏览器</span></span><br><span class="line"><span class="attr">iPhone</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;iPhone&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//是否为iPhone或者QQHD浏览器</span></span><br><span class="line"><span class="attr">iPad</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;iPad&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//是否iPad</span></span><br><span class="line"><span class="attr">webApp</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Safari&#x27;</span> ) == -<span class="number">1</span>  <span class="comment">//是否web应用程序，没有头部与底部</span></span><br><span class="line">&#125;;</span><br><span class="line">&#125;(),</span><br><span class="line"><span class="attr">language</span>: (navigator.<span class="property">browserLanguage</span> || navigator.<span class="property">language</span>).<span class="title function_">toLowerCase</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (browser.<span class="property">versions</span>.<span class="property">mobile</span>) &#123; <span class="comment">//判断是否是移动设备打开。browser代码在下面 </span></span><br><span class="line"><span class="keyword">var</span> ua = navigator.<span class="property">userAgent</span>.<span class="title function_">toLowerCase</span>(); <span class="comment">//获取判断用的对象</span></span><br><span class="line"> <span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/MicroMessenger/i</span>) ==  <span class="string">&quot;micromessenger&quot;</span> ) &#123;</span><br><span class="line"> <span class="comment">//在微信中打开</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/WeiBo/i</span>) ==  <span class="string">&quot;weibo&quot;</span> ) &#123; </span><br><span class="line"> <span class="comment">//在新浪微博客户端打开</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/QQ/i</span>) ==  <span class="string">&quot;qq&quot;</span> ) &#123;</span><br><span class="line"><span class="comment">//在QQ空间打开</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(browser.<span class="property">versions</span>.<span class="property">ios</span>) &#123;</span><br><span class="line"><span class="comment">//是否在IOS浏览器打开</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="keyword">if</span> (browser.<span class="property">versions</span>.<span class="property">android</span>)&#123; </span><br><span class="line"><span class="comment">//是否在安卓浏览器打开</span></span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">//否则就是PC浏览器打开</span></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> h5 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> h5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>applets-boder</title>
       <link href="/2022/12/05/applets-boder/"/>
       <url>/2022/12/05/applets-boder/</url>
@@ -17,6 +44,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 小程序 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -37,6 +72,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -55,6 +96,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
       
     </entry>
     
@@ -75,6 +124,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -93,6 +150,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> vue </tag>
+            
+        </tags>
       
     </entry>
     
@@ -113,6 +178,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> es6 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -131,6 +202,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 小程序 </tag>
+            
+        </tags>
       
     </entry>
     

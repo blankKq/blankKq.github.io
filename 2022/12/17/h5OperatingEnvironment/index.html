@@ -22,21 +22,21 @@
     var CONFIG = {"hostname":"blankkq.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="我们在使用element-ui组件的时候，该如何为element-ui中定义好的事件添加一些自己的参数呢？ 废话不多说，直接看代码：这是一个简单的应用，在我们选中按钮的时候，需用将他的名字也传递过去 12345678&lt;template&gt;	&lt;div class&#x3D;&quot;hello&quot;&gt;		&lt;div v-for&#x3D;&quot;(item, index) in i">
+  <meta name="description" content="一、区分微信、企业微信应用场景 判断当前页面运行环境为企业微信还是微信  指令代码1234567var ua&#x3D; window.navigator.userAgent.toLowerCase();if( (ua.match(&#x2F;MicroMessenger&#x2F;i) &#x3D;&#x3D; &amp;#x27;micromessenger&amp;#x27;) &amp;&amp; (ua.match(&#x2F;wxwork&#x2F;i) &#x3D;&#x3D; &amp;#x2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何为element-ui组件定义的事件添加自己的参数">
-<meta property="og:url" content="https://blankkq.github.io/2022/12/01/customParameters/index.html">
+<meta property="og:title" content="h5OperatingEnvironment">
+<meta property="og:url" content="https://blankkq.github.io/2022/12/17/h5OperatingEnvironment/index.html">
 <meta property="og:site_name" content="blank">
-<meta property="og:description" content="我们在使用element-ui组件的时候，该如何为element-ui中定义好的事件添加一些自己的参数呢？ 废话不多说，直接看代码：这是一个简单的应用，在我们选中按钮的时候，需用将他的名字也传递过去 12345678&lt;template&gt;	&lt;div class&#x3D;&quot;hello&quot;&gt;		&lt;div v-for&#x3D;&quot;(item, index) in i">
+<meta property="og:description" content="一、区分微信、企业微信应用场景 判断当前页面运行环境为企业微信还是微信  指令代码1234567var ua&#x3D; window.navigator.userAgent.toLowerCase();if( (ua.match(&#x2F;MicroMessenger&#x2F;i) &#x3D;&#x3D; &amp;#x27;micromessenger&amp;#x27;) &amp;&amp; (ua.match(&#x2F;wxwork&#x2F;i) &#x3D;&#x3D; &amp;#x2">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-12-01T15:39:38.000Z">
-<meta property="article:modified_time" content="2022-12-17T14:10:30.210Z">
+<meta property="article:published_time" content="2022-12-17T14:05:30.000Z">
+<meta property="article:modified_time" content="2022-12-17T14:09:17.782Z">
 <meta property="article:author" content="blank">
 <meta property="article:tag" content="前端">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="h5">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blankkq.github.io/2022/12/01/customParameters/">
+<link rel="canonical" href="https://blankkq.github.io/2022/12/17/h5OperatingEnvironment/">
 
 
 <script id="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>如何为element-ui组件定义的事件添加自己的参数 | blank</title>
+  <title>h5OperatingEnvironment | blank</title>
   
 
 
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blankkq.github.io/2022/12/01/customParameters/">
+    <link itemprop="mainEntityOfPage" href="https://blankkq.github.io/2022/12/17/h5OperatingEnvironment/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -215,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何为element-ui组件定义的事件添加自己的参数
+          h5OperatingEnvironment
         </h1>
 
         <div class="post-meta">
@@ -226,23 +226,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-12-01 23:39:38" itemprop="dateCreated datePublished" datetime="2022-12-01T23:39:38+08:00">2022-12-01</time>
+              <time title="创建时间：2022-12-17 22:05:30 / 修改时间：22:09:17" itemprop="dateCreated datePublished" datetime="2022-12-17T22:05:30+08:00">2022-12-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 22:10:30" itemprop="dateModified" datetime="2022-12-17T22:10:30+08:00">2022-12-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
+                  <a href="/categories/h5/" itemprop="url" rel="index"><span itemprop="name">h5</span></a>
                 </span>
             </span>
 
@@ -259,14 +253,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>955</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -278,13 +272,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>我们在使用element-ui组件的时候，该如何为element-ui中定义好的事件添加一些自己的参数呢？</p>
-<p>废话不多说，直接看代码：<br>这是一个简单的应用，在我们选中按钮的时候，需用将他的名字也传递过去</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">		&lt;div v-for=&quot;(item, index) in items&quot; :key=&quot;index&quot;&gt;</span><br><span class="line">			&lt;el-radio @change=&quot;(data) =&gt; &#123;getdata(item.name, data)&#125;&quot; v-model=&quot;radio&quot; label=&quot;1&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/el-radio&gt;</span><br><span class="line">			&lt;el-radio v-model=&quot;radio&quot; label=&quot;2&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/el-radio&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      radio: &quot;1&quot;,</span><br><span class="line">      items: [&#123;name: &#x27;lis&#x27;&#125;, &#123;name: &#x27;13&#x27;&#125;]</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    getdata(index, data) &#123;</span><br><span class="line">      console.log(data, index);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>原理：这里形成了闭包，在点击的时候，会将change事件中默认的参数传递到匿名函数里边，然后再获取到这个参数</p>
-<p>补充：可以使用$event 来获取到事件对象e</p>
+        <h2 id="一、区分微信、企业微信"><a href="#一、区分微信、企业微信" class="headerlink" title="一、区分微信、企业微信"></a>一、区分微信、企业微信</h2><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><blockquote>
+<p>判断当前页面运行环境为企业微信还是微信</p>
+</blockquote>
+<h3 id="指令代码"><a href="#指令代码" class="headerlink" title="指令代码"></a>指令代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> ua= <span class="variable language_">window</span>.<span class="property">navigator</span>.<span class="property">userAgent</span>.<span class="title function_">toLowerCase</span>();</span><br><span class="line"><span class="keyword">if</span>( (ua.<span class="title function_">match</span>(<span class="regexp">/MicroMessenger/i</span>) == <span class="string">&#x27;micromessenger&#x27;</span>) &amp;&amp; (ua.<span class="title function_">match</span>(<span class="regexp">/wxwork/i</span>) == <span class="string">&#x27;wxwork&#x27;</span>) )&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;企业微信客户端&quot;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(ua.<span class="title function_">match</span>(<span class="regexp">/micromessenger/i</span>) == <span class="string">&#x27;micromessenger&#x27;</span> )&#123;</span><br><span class="line"> 	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;微信客户端&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、区分微信、微博、qq空间"><a href="#二、区分微信、微博、qq空间" class="headerlink" title="二、区分微信、微博、qq空间"></a>二、区分微信、微博、qq空间</h2><h3 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h3><blockquote>
+<p>判断当前运行环境：微信、微博、qq空间</p>
+</blockquote>
+<h3 id="指令代码-1"><a href="#指令代码-1" class="headerlink" title="指令代码"></a>指令代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ua = navigator.<span class="property">userAgent</span>.<span class="title function_">toLowerCase</span>(); <span class="comment">//获取判断用的对象</span></span><br><span class="line"><span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/MicroMessenger/i</span>) == <span class="string">&quot;micromessenger&quot;</span>) &#123;</span><br><span class="line"><span class="comment">//在微信中打开</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/WeiBo/i</span>) == <span class="string">&quot;weibo&quot;</span>) &#123;</span><br><span class="line"><span class="comment">//在新浪微博客户端打开</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/QQ/i</span>) == <span class="string">&quot;qq&quot;</span>) &#123;</span><br><span class="line"><span class="comment">//在QQ空间打开</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、区分设备及运行环境"><a href="#三、区分设备及运行环境" class="headerlink" title="三、区分设备及运行环境"></a>三、区分设备及运行环境</h2><h3 id="应用场景-2"><a href="#应用场景-2" class="headerlink" title="应用场景"></a>应用场景</h3><blockquote>
+<p>判断当前设备及运行环境：移动设备、pc端、android、iPhone、是否为微信、微博、qq空间</p>
+</blockquote>
+<h3 id="指令代码-2"><a href="#指令代码-2" class="headerlink" title="指令代码"></a>指令代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> browser = &#123;</span><br><span class="line">	<span class="attr">versions</span>:  <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">		<span class="keyword">var</span> u = navigator.<span class="property">userAgent</span>, app = navigator.<span class="property">appVersion</span>; </span><br><span class="line">		<span class="keyword">return</span> &#123; <span class="comment">//移动终端浏览器版本信息</span></span><br><span class="line">			<span class="attr">trident</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Trident&#x27;</span> ) &gt; -<span class="number">1</span>, <span class="comment">//IE内核</span></span><br><span class="line">			<span class="attr">presto</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Presto&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//opera内核</span></span><br><span class="line"> 			<span class="attr">webKit</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;AppleWebKit&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//苹果、谷歌内核</span></span><br><span class="line">			<span class="attr">gecko</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Gecko&#x27;</span> ) &gt; -<span class="number">1</span> &amp;&amp; u.<span class="title function_">indexOf</span>( <span class="string">&#x27;KHTML&#x27;</span> ) == -<span class="number">1</span>,  <span class="comment">//火狐内核</span></span><br><span class="line">			<span class="attr">mobile</span>: !!u.<span class="title function_">match</span>(<span class="regexp">/AppleWebKit.*Mobile.*/</span>),  <span class="comment">//是否为移动终端</span></span><br><span class="line"> 			<span class="attr">ios</span>: !!u.<span class="title function_">match</span>(<span class="regexp">/\(i[^;]+;( U;)? CPU.+Mac OS X/</span>), <span class="comment">//ios终端</span></span><br><span class="line">			<span class="attr">android</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Android&#x27;</span> ) &gt; -<span class="number">1</span> || u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Linux&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//android终端或uc浏览器</span></span><br><span class="line">			<span class="attr">iPhone</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;iPhone&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//是否为iPhone或者QQHD浏览器</span></span><br><span class="line">			<span class="attr">iPad</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;iPad&#x27;</span> ) &gt; -<span class="number">1</span>,  <span class="comment">//是否iPad</span></span><br><span class="line">			<span class="attr">webApp</span>: u.<span class="title function_">indexOf</span>( <span class="string">&#x27;Safari&#x27;</span> ) == -<span class="number">1</span>  <span class="comment">//是否web应用程序，没有头部与底部</span></span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;(),</span><br><span class="line">	<span class="attr">language</span>: (navigator.<span class="property">browserLanguage</span> || navigator.<span class="property">language</span>).<span class="title function_">toLowerCase</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (browser.<span class="property">versions</span>.<span class="property">mobile</span>) &#123; <span class="comment">//判断是否是移动设备打开。browser代码在下面 </span></span><br><span class="line">	<span class="keyword">var</span> ua = navigator.<span class="property">userAgent</span>.<span class="title function_">toLowerCase</span>(); <span class="comment">//获取判断用的对象</span></span><br><span class="line"> 	<span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/MicroMessenger/i</span>) ==  <span class="string">&quot;micromessenger&quot;</span> ) &#123;</span><br><span class="line"> 	<span class="comment">//在微信中打开</span></span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/WeiBo/i</span>) ==  <span class="string">&quot;weibo&quot;</span> ) &#123; </span><br><span class="line">	 	<span class="comment">//在新浪微博客户端打开</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (ua.<span class="title function_">match</span>(<span class="regexp">/QQ/i</span>) ==  <span class="string">&quot;qq&quot;</span> ) &#123;</span><br><span class="line">	<span class="comment">//在QQ空间打开</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(browser.<span class="property">versions</span>.<span class="property">ios</span>) &#123;</span><br><span class="line">	<span class="comment">//是否在IOS浏览器打开</span></span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">if</span> (browser.<span class="property">versions</span>.<span class="property">android</span>)&#123; </span><br><span class="line">	<span class="comment">//是否在安卓浏览器打开</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">//否则就是PC浏览器打开</span></span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -302,7 +301,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blankkq.github.io/2022/12/01/customParameters/" title="如何为element-ui组件定义的事件添加自己的参数">https://blankkq.github.io/2022/12/01/customParameters/</a>
+    <a href="https://blankkq.github.io/2022/12/17/h5OperatingEnvironment/" title="h5OperatingEnvironment">https://blankkq.github.io/2022/12/17/h5OperatingEnvironment/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -314,7 +313,7 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
-              <a href="/tags/vue/" rel="tag"># vue</a>
+              <a href="/tags/h5/" rel="tag"># h5</a>
           </div>
 
         
@@ -323,13 +322,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/12/01/vueSet/" rel="prev" title="this.$set的正确使用">
-      <i class="fa fa-chevron-left"></i> this.$set的正确使用
+    <a href="/2022/12/05/applets-boder/" rel="prev" title="applets-boder">
+      <i class="fa fa-chevron-left"></i> applets-boder
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/12/01/isJsonString/" rel="next" title="如何判断一个字符串格式是否为JSON字符串">
-      如何判断一个字符串格式是否为JSON字符串 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -393,6 +389,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%8C%BA%E5%88%86%E5%BE%AE%E4%BF%A1%E3%80%81%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1"><span class="nav-number">1.</span> <span class="nav-text">一、区分微信、企业微信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">指令代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%8C%BA%E5%88%86%E5%BE%AE%E4%BF%A1%E3%80%81%E5%BE%AE%E5%8D%9A%E3%80%81qq%E7%A9%BA%E9%97%B4"><span class="nav-number">2.</span> <span class="nav-text">二、区分微信、微博、qq空间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="nav-number">2.1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E4%BB%A3%E7%A0%81-1"><span class="nav-number">2.2.</span> <span class="nav-text">指令代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%8C%BA%E5%88%86%E8%AE%BE%E5%A4%87%E5%8F%8A%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83"><span class="nav-number">3.</span> <span class="nav-text">三、区分设备及运行环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-2"><span class="nav-number">3.1.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E4%BB%A3%E7%A0%81-2"><span class="nav-number">3.2.</span> <span class="nav-text">指令代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
