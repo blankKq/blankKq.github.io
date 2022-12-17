@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blankkq.github.io/2022/12/17/gitConnect/</loc>
+    
+    <lastmod>2022-12-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blankkq.github.io/2022/12/05/applets-boder/</loc>
     
     <lastmod>2022-12-17</lastmod>
@@ -160,6 +169,20 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://blankkq.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2022-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blankkq.github.io/tags/git/</loc>
+    <lastmod>2022-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -192,6 +215,13 @@
   
   <url>
     <loc>https://blankkq.github.io/categories/h5/</loc>
+    <lastmod>2022-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blankkq.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

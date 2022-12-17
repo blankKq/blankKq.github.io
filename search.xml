@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>gitConnect</title>
+      <link href="/2022/12/17/gitConnect/"/>
+      <url>/2022/12/17/gitConnect/</url>
+      
+        <content type="html"><![CDATA[<h5 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h5><ul><li>某一天，开开心心的写完了一篇博客，在向GitHub推送的时候突然报错了，乍一看，报错了，顿时….</li></ul><p><img src="https://img-blog.csdnimg.cn/aa9df36348314155bcf3f19ac4de6c0c.png" alt="在这里插入图片描述"><br>通过查阅资料尝试了几种方法之后解决了，在这做个记录。</p><h6 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h6><p>首先需要检查一下SSH是否能够连接成功，输入以下命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>若还是报这个错ssh: connect to host github.com port 22: Connection timed out就可以使用以下解决办法</p><ol><li>打开git bash 命令行窗口，找到密钥生成位置 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure> 如果找不到，则需要确认是否生成并配置了ssh</li><li>查看文件是否存在 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure></li><li>若存在则在继续在终端输入以下命令新建一个文件 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config</span><br></pre></td></tr></table></figure></li><li>接着输入下面内容 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User 注册github的邮箱</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure><img src="https://img-blog.csdnimg.cn/b7f1988013374fcc9b7281d397debb67.png" alt="在这里插入图片描述"></li><li>最后:ZZ退出编辑即可</li></ol><h6 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h6><ul><li><code>ssh -T git@github.com</code></li><li>出现提示yes回车即可<br> <img src="https://img-blog.csdnimg.cn/bf297b332dcb48fc8b90f0d588ca5aa3.png" alt="在这里插入图片描述"><br> 验证就能顺利通过了</li></ul><hr><p>作者：迟来的阿牛<br>来源：csdn<br>原文：<a href="https://blog.csdn.net/nightwishh/article/details/99647545">https://blog.csdn.net/nightwishh/article/details/99647545</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>H5判断当前运行环境：如微信、企业微信</title>
       <link href="/2022/12/17/h5OperatingEnvironment/"/>
       <url>/2022/12/17/h5OperatingEnvironment/</url>
