@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>buttonClick</title>
+      <link href="/2022/12/28/buttonClick/"/>
+      <url>/2022/12/28/buttonClick/</url>
+      
+        <content type="html"><![CDATA[<hr><h5 id="css增加元素点击范围"><a href="#css增加元素点击范围" class="headerlink" title="css增加元素点击范围"></a>css增加元素点击范围</h5><p>有时候页面设计按钮较小，或着由于元素所在区域不适合放置大小，可以采用奇淫技巧（css）增加点击事件的触发范围。<br>比如页面中有一个按钮</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;text id=<span class="string">&quot;gl1&quot;</span> bindtap=<span class="string">&quot;&#123;&#123;lettering&#125;&#125;&quot;</span>&gt;&lt;/text&gt;</span><br></pre></td></tr></table></figure><p>css代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> #gl1&#123;</span><br><span class="line">    text-<span class="attr">align</span>: center;</span><br><span class="line">    <span class="attr">width</span>: 24rpx;</span><br><span class="line">    <span class="attr">height</span>: 24rpx;</span><br><span class="line">    <span class="attr">position</span>: absolute;</span><br><span class="line">    <span class="attr">top</span>: <span class="number">50</span>%;</span><br><span class="line">    <span class="attr">left</span>: 22rpx;</span><br><span class="line">    border-<span class="attr">left</span>: 4rpx solid #<span class="variable constant_">FFFFFF</span>;</span><br><span class="line">    border-<span class="attr">bottom</span>: 4rpx solid #<span class="variable constant_">FFFFFF</span>;</span><br><span class="line">    -webkit-<span class="attr">transform</span>: <span class="title function_">translate</span>(<span class="number">0</span>,-<span class="number">50</span>%) <span class="title function_">rotate</span>(-135deg);</span><br><span class="line">    <span class="attr">transform</span>: <span class="title function_">translate</span>(<span class="number">0</span>,-<span class="number">50</span>%) <span class="title function_">rotate</span>(45deg);</span><br><span class="line">&#125;</span><br><span class="line">#<span class="attr">gl1</span>::before&#123;</span><br><span class="line">    <span class="attr">content</span>:<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attr">position</span>:absolute;</span><br><span class="line">    <span class="attr">top</span>:-20rpx;</span><br><span class="line">    <span class="attr">left</span>:-20rpx;</span><br><span class="line">    <span class="attr">bottom</span>:-20rpx;</span><br><span class="line">    <span class="attr">right</span>:-20rpx;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>css中的伪类可以增加元素事件的触发范围，但却可以做到不影响页面元素的排列，这点是伪类的一个实用小技巧</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css h5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git无法连接远程仓库（GitHub）</title>
       <link href="/2022/12/17/gitConnect/"/>
       <url>/2022/12/17/gitConnect/</url>
