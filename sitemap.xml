@@ -155,21 +155,14 @@
 
   
   <url>
-    <loc>https://blankkq.github.io/tags/css-h5/</loc>
-    <lastmod>2023-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blankkq.github.io/tags/es6/</loc>
-    <lastmod>2023-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blankkq.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2023-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blankkq.github.io/tags/vue/</loc>
     <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -183,7 +176,14 @@
   </url>
   
   <url>
-    <loc>https://blankkq.github.io/tags/vue/</loc>
+    <loc>https://blankkq.github.io/tags/css-h5/</loc>
+    <lastmod>2023-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blankkq.github.io/tags/es6/</loc>
     <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -227,14 +227,7 @@
 
   
   <url>
-    <loc>https://blankkq.github.io/categories/css/</loc>
-    <lastmod>2023-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blankkq.github.io/categories/es6/</loc>
+    <loc>https://blankkq.github.io/categories/vue/</loc>
     <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -248,7 +241,14 @@
   </url>
   
   <url>
-    <loc>https://blankkq.github.io/categories/vue/</loc>
+    <loc>https://blankkq.github.io/categories/css/</loc>
+    <lastmod>2023-06-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blankkq.github.io/categories/es6/</loc>
     <lastmod>2023-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
