@@ -125,7 +125,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">9</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">10</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -135,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-schedule">
@@ -389,6 +389,196 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blankkq.github.io/2023/06/21/html2canvasDefinition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="blank">
+      <meta itemprop="description" content="blank个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blank">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/21/html2canvasDefinition/" class="post-title-link" itemprop="url">html2canvas 绘制海报清晰度</a>
+        </h2>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-06-21 11:20:55 / 修改时间：11:24:12" itemprop="dateCreated datePublished" datetime="2023-06-21T11:20:55+08:00">2023-06-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/h5/" itemprop="url" rel="index"><span itemprop="name">h5</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>使用html2canvas绘制海报，生成海报比较模糊</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="方案一：增大dpi"><a href="#方案一：增大dpi" class="headerlink" title="方案一：增大dpi"></a>方案一：增大dpi</h5><blockquote>
+<p>dpi:DPI是指某些设备分辨率的度量单位。DPI越低，扫描的清晰度越低，DPI越高，清晰度越高。<br>由于受网络传输速度的影响，web上使用的图片都是72dpi，照片使用300dpi或者更高350dpi，会很清晰。</p>
+</blockquote>
+<h5 id="方案二：增大scale"><a href="#方案二：增大scale" class="headerlink" title="方案二：增大scale"></a>方案二：增大scale</h5><blockquote>
+<p>scale会缩放canvas画布，提高&#x2F;减小生成图片分辨率</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scale: 3, // 按比例增加分辨率 (2=双倍).</span><br></pre></td></tr></table></figure>
+
+<h5 id="方案三：将页面图片引入方式由背景图改为img标签"><a href="#方案三：将页面图片引入方式由背景图改为img标签" class="headerlink" title="方案三：将页面图片引入方式由背景图改为img标签"></a>方案三：将页面图片引入方式由背景图改为img标签</h5><h5 id="方案四：分割转换"><a href="#方案四：分割转换" class="headerlink" title="方案四：分割转换"></a>方案四：分割转换</h5><blockquote>
+<p>将目标元素分割为多个小块，并分别进行转换，最后将分割的图片交给后端把图片合成起来</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">     * 绘制海报</span><br><span class="line">     * @param &#123;*&#125; picDom</span><br><span class="line">     * @param &#123;*&#125; picRef</span><br><span class="line">     */</span><br><span class="line">    createImgDebris(picDom, picRef) &#123;</span><br><span class="line">      return new Promise(resolve =&gt; &#123;</span><br><span class="line">        var targetDom = document.getElementById(picDom);</span><br><span class="line">        const setup = &#123;</span><br><span class="line">          useCORS: true, // 使用跨域</span><br><span class="line">          height: targetDom.scrollHeight - 1, //canvas高, 高度减 1 是为了解决底部出现白线问题</span><br><span class="line">          width: targetDom.scrollWidth, //canvas宽</span><br><span class="line">          scale: this.isPad ? 6 : 7.5, //按比例增加分辨率 (2=双倍).</span><br><span class="line">          // scale: list.length &gt; 25 ? 4.5 : 5.2, //按比例增加分辨率 (2=双倍).</span><br><span class="line">          // dpi: window.devicePixelRatio * 2 //设备像素比</span><br><span class="line">          dpi: window.devicePixelRatio * 2 //设备像素比</span><br><span class="line">        &#125;;</span><br><span class="line">        html2canvas(this.$refs[picRef], setup).then(canvas =&gt; &#123;</span><br><span class="line">          let blockDataURL = canvas.toDataURL(&quot;image/jpg&quot;);</span><br><span class="line">          resolve(blockDataURL);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 海报生成图片</span><br><span class="line">     */</span><br><span class="line">    creatImg(type) &#123;</span><br><span class="line">      let promiseList = [</span><br><span class="line">        this.createImgDebris(&quot;imgBoxBanner&quot;, &quot;pictureBanner&quot;),</span><br><span class="line">        this.createImgDebris(&quot;imgBoxBox50&quot;, &quot;pictureBox50&quot;)</span><br><span class="line">      ];</span><br><span class="line">      Promise.all(promiseList).then(resList =&gt; &#123;</span><br><span class="line">        this.uploadImg(resList, &quot;image/jpg&quot;)</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>合并上传</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">     * 合并上传图片</span><br><span class="line">     * @param &#123;*&#125; imgList</span><br><span class="line">     * @param &#123;*&#125; imgType</span><br><span class="line">     */</span><br><span class="line">    async uploadImg(imgList, imgType = &quot;image/jpg&quot;) &#123;</span><br><span class="line">      return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">          // 创建 FormData 对象并添加图像数据</span><br><span class="line">          const formData = new FormData();</span><br><span class="line">          for (let len = imgList.length, i = 0; i &lt; len; i++) &#123;</span><br><span class="line">            let img = imgList[i];</span><br><span class="line">            const binaryImageData = atob(img.split(&quot;,&quot;)[1]);</span><br><span class="line">            // 创建一个缓冲数组来存储二进制数据</span><br><span class="line">            const buffer = new Uint8Array(binaryImageData.length);</span><br><span class="line">            // 将二进制数据复制到缓冲数组中</span><br><span class="line">            for (let i = 0; i &lt; binaryImageData.length; i++) &#123;</span><br><span class="line">              buffer[i] = binaryImageData.charCodeAt(i);</span><br><span class="line">            &#125;</span><br><span class="line">            // 将缓冲数组转换为 Blob 对象</span><br><span class="line">            const blob = new Blob([buffer], &#123; type: imgType &#125;);</span><br><span class="line">            formData.append(&quot;files&quot;, blob, imgType);</span><br><span class="line">          &#125;</span><br><span class="line">          mergeMaterialPost(formData).then(res =&gt; &#123;</span><br><span class="line">            resolve(res);</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125; catch (error) &#123;</span><br><span class="line">          reject(error);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blankkq.github.io/2023/06/21/html2canvasLine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="blank">
+      <meta itemprop="description" content="blank个人博客">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="blank">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/21/html2canvasLine/" class="post-title-link" itemprop="url">html2canvas生成图片底部出现白边儿的解决方法</a>
+        </h2>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-06-21 11:20:55 / 修改时间：11:22:13" itemprop="dateCreated datePublished" datetime="2023-06-21T11:20:55+08:00">2023-06-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/h5/" itemprop="url" rel="index"><span itemprop="name">h5</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>522</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>使用html2canvas的时候，生成的图片底部出现了白边</p>
+<h4 id="产生白边原因"><a href="#产生白边原因" class="headerlink" title="产生白边原因"></a>产生白边原因</h4><p>可能是由于像素渲染问题导致的。移动设备的屏幕像素密度（Pixel Density）较高，有时会导致在两个相邻元素之间出现细小的间隙或白线。</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>将canvas画布高度调小1像素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var targetDom = document.getElementById(picDom);</span><br><span class="line">const setup = &#123;</span><br><span class="line">    useCORS: true, // 使用跨域</span><br><span class="line">    height: targetDom.scrollHeight - 1, //canvas高, 高度减 1 是为了解决底部出现白线问题</span><br><span class="line">    width: targetDom.scrollWidth, //canvas宽</span><br><span class="line">    scale: this.isPad ? 6 : 7.5, //按比例增加分辨率 (2=双倍).</span><br><span class="line">    dpi: window.devicePixelRatio * 2 //设备像素比</span><br><span class="line"> &#125;;</span><br><span class="line">html2canvas(this.$refs[picRef], setup).then(canvas =&gt; &#123;</span><br><span class="line">    let blockDataURL = canvas.toDataURL(&quot;image/jpg&quot;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -1014,225 +1204,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blankkq.github.io/2022/12/01/overwritt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="blank">
-      <meta itemprop="description" content="blank个人博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blank">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/01/overwritt/" class="post-title-link" itemprop="url">报错： [Vue warn]: Avoid mutating a prop directly since the value will be overwritt</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-12-01 23:35:40" itemprop="dateCreated datePublished" datetime="2022-12-01T23:35:40+08:00">2022-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 22:50:25" itemprop="dateModified" datetime="2022-12-17T22:50:25+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>513</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在更改props属性中的值时，会报错：</p>
-<blockquote>
-<p>[Vue warn]: Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop’s value. Prop being mutated: “tableData”</p>
-</blockquote>
-<br>
-<br>
-
-<p> <strong>原因：</strong> props是单向数据绑定的，当父组件中的值发生变化，会将值传导给子组件，但是不会反过来（在vue2.0中废除了props的双向数据绑定），这是为了子组件无意中修改了父组件中的状态，使应用的数据流变得难以理解 </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/12/01/overwritt/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blankkq.github.io/2022/12/01/es6-let/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="blank">
-      <meta itemprop="description" content="blank个人博客">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="blank">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/01/es6-let/" class="post-title-link" itemprop="url">es6-let</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-12-01 20:08:16" itemprop="dateCreated datePublished" datetime="2022-12-01T20:08:16+08:00">2022-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 22:50:19" itemprop="dateModified" datetime="2022-12-17T22:50:19+08:00">2022-12-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/es6/" itemprop="url" rel="index"><span itemprop="name">es6</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>745</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="let，const的一些特点"><a href="#let，const的一些特点" class="headerlink" title="let，const的一些特点"></a>let，const的一些特点</h1><ol>
-<li><p>使用let或者const定义会形成块级作用域，一个{}就是一个作用域</p>
-</li>
-<li><p>let，const没有与解析</p>
-</li>
-<li><p>同一个作用域下不能同时定义同一个变量</p>
-</li>
-<li><p>for循环时使用let来定义变量</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.<span class="property">length</span>; i &lt; len; i++) &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(i) <span class="comment">// 0 1 2 3 4 </span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="title function_">alert</span>(i) <span class="comment">// 报错，i is not defined</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">   <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, len = arr.<span class="property">length</span>; i &lt; len; i++) &#123;</span><br><span class="line">     <span class="keyword">let</span> i = <span class="string">&#x27;i 是否已经被定义了？&#x27;</span></span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(i) <span class="comment">// 此时代码并没有报错，证明let i = 0 和let i = &#x27;i 是否已经被定义了？&#x27;并没有在同一个作用域下</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>从以上两段代码中可以看出来在for循环的过程中使用let定义的变量i的时候，（）也形成了一个作用域，该作用域是 { } 里边的一个父级作用域</p>
-</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/12/01/es6-let/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1299,7 +1275,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1312,7 +1288,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1346,8 +1322,8 @@
 
 <div class="copyright">
   
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1357,13 +1333,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">10k</span>
+    <span title="站点总字数">12k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9 分钟</span>
+    <span title="站点阅读时长">11 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

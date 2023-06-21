@@ -22,20 +22,22 @@
     var CONFIG = {"hostname":"blankkq.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="代码如下：1234567891011121314151617function isJSON(str) &amp;#123;    if (typeof str &#x3D;&#x3D; &amp;#x27;string&amp;#x27;) &amp;#123;        try &amp;#123;            var obj&#x3D;JSON.parse(str);            if(Object.prototype.toString.">
+  <meta name="description" content="场景使用html2canvas绘制海报，生成海报比较模糊 解决方案方案一：增大dpi dpi:DPI是指某些设备分辨率的度量单位。DPI越低，扫描的清晰度越低，DPI越高，清晰度越高。由于受网络传输速度的影响，web上使用的图片都是72dpi，照片使用300dpi或者更高350dpi，会很清晰。  方案二：增大scale scale会缩放canvas画布，提高&#x2F;减小生成图片分辨率  1s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何判断一个字符串格式是否为JSON字符串">
-<meta property="og:url" content="https://blankkq.github.io/2022/12/01/isJsonString/index.html">
+<meta property="og:title" content="html2canvas 绘制海报清晰度">
+<meta property="og:url" content="https://blankkq.github.io/2023/06/21/html2canvasDefinition/index.html">
 <meta property="og:site_name" content="blank">
-<meta property="og:description" content="代码如下：1234567891011121314151617function isJSON(str) &amp;#123;    if (typeof str &#x3D;&#x3D; &amp;#x27;string&amp;#x27;) &amp;#123;        try &amp;#123;            var obj&#x3D;JSON.parse(str);            if(Object.prototype.toString.">
+<meta property="og:description" content="场景使用html2canvas绘制海报，生成海报比较模糊 解决方案方案一：增大dpi dpi:DPI是指某些设备分辨率的度量单位。DPI越低，扫描的清晰度越低，DPI越高，清晰度越高。由于受网络传输速度的影响，web上使用的图片都是72dpi，照片使用300dpi或者更高350dpi，会很清晰。  方案二：增大scale scale会缩放canvas画布，提高&#x2F;减小生成图片分辨率  1s">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-12-01T15:40:35.000Z">
-<meta property="article:modified_time" content="2022-12-17T14:50:23.179Z">
+<meta property="article:published_time" content="2023-06-21T03:20:55.000Z">
+<meta property="article:modified_time" content="2023-06-21T03:24:12.362Z">
 <meta property="article:author" content="blank">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="h5">
+<meta property="article:tag" content="html2canvas">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blankkq.github.io/2022/12/01/isJsonString/">
+<link rel="canonical" href="https://blankkq.github.io/2023/06/21/html2canvasDefinition/">
 
 
 <script id="page-configurations">
@@ -48,7 +50,7 @@
   };
 </script>
 
-  <title>如何判断一个字符串格式是否为JSON字符串 | blank</title>
+  <title>html2canvas 绘制海报清晰度 | blank</title>
   
 
 
@@ -201,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blankkq.github.io/2022/12/01/isJsonString/">
+    <link itemprop="mainEntityOfPage" href="https://blankkq.github.io/2023/06/21/html2canvasDefinition/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -214,7 +216,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          如何判断一个字符串格式是否为JSON字符串
+          html2canvas 绘制海报清晰度
         </h1>
 
         <div class="post-meta">
@@ -225,23 +227,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-12-01 23:40:35" itemprop="dateCreated datePublished" datetime="2022-12-01T23:40:35+08:00">2022-12-01</time>
+              <time title="创建时间：2023-06-21 11:20:55 / 修改时间：11:24:12" itemprop="dateCreated datePublished" datetime="2023-06-21T11:20:55+08:00">2023-06-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-17 22:50:23" itemprop="dateModified" datetime="2022-12-17T22:50:23+08:00">2022-12-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">javascript</span></a>
+                  <a href="/categories/h5/" itemprop="url" rel="index"><span itemprop="name">h5</span></a>
                 </span>
             </span>
 
@@ -258,14 +254,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>489</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -277,7 +273,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">isJSON</span>(<span class="params">str</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> str == <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> obj=<span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br><span class="line">            <span class="keyword">if</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(obj) == <span class="string">&#x27;[object Object]&#x27;</span> &amp;&amp; obj )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;error：&#x27;</span>+str+<span class="string">&#x27;!!!&#x27;</span>+e);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;It is not a string!&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><span id="more"></span></h2><p>作者：雷明<br>来源：博客园<br>原文：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lanleiming/p/7096973.html">https://www.cnblogs.com/lanleiming/p/7096973.html</a><br>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
+        <h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>使用html2canvas绘制海报，生成海报比较模糊</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="方案一：增大dpi"><a href="#方案一：增大dpi" class="headerlink" title="方案一：增大dpi"></a>方案一：增大dpi</h5><blockquote>
+<p>dpi:DPI是指某些设备分辨率的度量单位。DPI越低，扫描的清晰度越低，DPI越高，清晰度越高。<br>由于受网络传输速度的影响，web上使用的图片都是72dpi，照片使用300dpi或者更高350dpi，会很清晰。</p>
+</blockquote>
+<h5 id="方案二：增大scale"><a href="#方案二：增大scale" class="headerlink" title="方案二：增大scale"></a>方案二：增大scale</h5><blockquote>
+<p>scale会缩放canvas画布，提高&#x2F;减小生成图片分辨率</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scale: 3, // 按比例增加分辨率 (2=双倍).</span><br></pre></td></tr></table></figure>
+
+<h5 id="方案三：将页面图片引入方式由背景图改为img标签"><a href="#方案三：将页面图片引入方式由背景图改为img标签" class="headerlink" title="方案三：将页面图片引入方式由背景图改为img标签"></a>方案三：将页面图片引入方式由背景图改为img标签</h5><h5 id="方案四：分割转换"><a href="#方案四：分割转换" class="headerlink" title="方案四：分割转换"></a>方案四：分割转换</h5><blockquote>
+<p>将目标元素分割为多个小块，并分别进行转换，最后将分割的图片交给后端把图片合成起来</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">     * 绘制海报</span><br><span class="line">     * @param &#123;*&#125; picDom</span><br><span class="line">     * @param &#123;*&#125; picRef</span><br><span class="line">     */</span><br><span class="line">    createImgDebris(picDom, picRef) &#123;</span><br><span class="line">      return new Promise(resolve =&gt; &#123;</span><br><span class="line">        var targetDom = document.getElementById(picDom);</span><br><span class="line">        const setup = &#123;</span><br><span class="line">          useCORS: true, // 使用跨域</span><br><span class="line">          height: targetDom.scrollHeight - 1, //canvas高, 高度减 1 是为了解决底部出现白线问题</span><br><span class="line">          width: targetDom.scrollWidth, //canvas宽</span><br><span class="line">          scale: this.isPad ? 6 : 7.5, //按比例增加分辨率 (2=双倍).</span><br><span class="line">          // scale: list.length &gt; 25 ? 4.5 : 5.2, //按比例增加分辨率 (2=双倍).</span><br><span class="line">          // dpi: window.devicePixelRatio * 2 //设备像素比</span><br><span class="line">          dpi: window.devicePixelRatio * 2 //设备像素比</span><br><span class="line">        &#125;;</span><br><span class="line">        html2canvas(this.$refs[picRef], setup).then(canvas =&gt; &#123;</span><br><span class="line">          let blockDataURL = canvas.toDataURL(&quot;image/jpg&quot;);</span><br><span class="line">          resolve(blockDataURL);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 海报生成图片</span><br><span class="line">     */</span><br><span class="line">    creatImg(type) &#123;</span><br><span class="line">      let promiseList = [</span><br><span class="line">        this.createImgDebris(&quot;imgBoxBanner&quot;, &quot;pictureBanner&quot;),</span><br><span class="line">        this.createImgDebris(&quot;imgBoxBox50&quot;, &quot;pictureBox50&quot;)</span><br><span class="line">      ];</span><br><span class="line">      Promise.all(promiseList).then(resList =&gt; &#123;</span><br><span class="line">        this.uploadImg(resList, &quot;image/jpg&quot;)</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>合并上传</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">     * 合并上传图片</span><br><span class="line">     * @param &#123;*&#125; imgList</span><br><span class="line">     * @param &#123;*&#125; imgType</span><br><span class="line">     */</span><br><span class="line">    async uploadImg(imgList, imgType = &quot;image/jpg&quot;) &#123;</span><br><span class="line">      return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">          // 创建 FormData 对象并添加图像数据</span><br><span class="line">          const formData = new FormData();</span><br><span class="line">          for (let len = imgList.length, i = 0; i &lt; len; i++) &#123;</span><br><span class="line">            let img = imgList[i];</span><br><span class="line">            const binaryImageData = atob(img.split(&quot;,&quot;)[1]);</span><br><span class="line">            // 创建一个缓冲数组来存储二进制数据</span><br><span class="line">            const buffer = new Uint8Array(binaryImageData.length);</span><br><span class="line">            // 将二进制数据复制到缓冲数组中</span><br><span class="line">            for (let i = 0; i &lt; binaryImageData.length; i++) &#123;</span><br><span class="line">              buffer[i] = binaryImageData.charCodeAt(i);</span><br><span class="line">            &#125;</span><br><span class="line">            // 将缓冲数组转换为 Blob 对象</span><br><span class="line">            const blob = new Blob([buffer], &#123; type: imgType &#125;);</span><br><span class="line">            formData.append(&quot;files&quot;, blob, imgType);</span><br><span class="line">          &#125;</span><br><span class="line">          mergeMaterialPost(formData).then(res =&gt; &#123;</span><br><span class="line">            resolve(res);</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125; catch (error) &#123;</span><br><span class="line">          reject(error);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -295,7 +306,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blankkq.github.io/2022/12/01/isJsonString/" title="如何判断一个字符串格式是否为JSON字符串">https://blankkq.github.io/2022/12/01/isJsonString/</a>
+    <a href="https://blankkq.github.io/2023/06/21/html2canvasDefinition/" title="html2canvas 绘制海报清晰度">https://blankkq.github.io/2023/06/21/html2canvasDefinition/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -306,7 +317,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/h5/" rel="tag"># h5</a>
+              <a href="/tags/html2canvas/" rel="tag"># html2canvas</a>
           </div>
 
         
@@ -315,13 +328,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/12/01/customParameters/" rel="prev" title="如何为element-ui组件定义的事件添加自己的参数">
-      <i class="fa fa-chevron-left"></i> 如何为element-ui组件定义的事件添加自己的参数
+    <a href="/2023/06/21/html2canvasLine/" rel="prev" title="html2canvas生成图片底部出现白边儿的解决方法">
+      <i class="fa fa-chevron-left"></i> html2canvas生成图片底部出现白边儿的解决方法
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/12/05/applets-boder/" rel="next" title="小程序1rpx边框不完美解决方案">
-      小程序1rpx边框不完美解决方案 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -385,7 +395,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">代码如下：1234567891011121314151617function isJSON(str) {    if (typeof str &#x3D;&#x3D; &#39;string&#39;) {        try {            var obj&#x3D;JSON.parse(str);            if(Object.prototype.toString.call(obj) &#x3D;&#x3D; &#39;[object Object]&#39; &amp;&amp; obj ){                return true;            }else{                return false;            }        } catch(e) {            console.log(&#39;error：&#39;+str+&#39;!!!&#39;+e);            return false;        }    }    console.log(&#39;It is not a string!&#39;)}</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A%E5%A2%9E%E5%A4%A7dpi"><span class="nav-number">2.1.</span> <span class="nav-text">方案一：增大dpi</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A%E5%A2%9E%E5%A4%A7scale"><span class="nav-number">2.2.</span> <span class="nav-text">方案二：增大scale</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%89%EF%BC%9A%E5%B0%86%E9%A1%B5%E9%9D%A2%E5%9B%BE%E7%89%87%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F%E7%94%B1%E8%83%8C%E6%99%AF%E5%9B%BE%E6%94%B9%E4%B8%BAimg%E6%A0%87%E7%AD%BE"><span class="nav-number">2.3.</span> <span class="nav-text">方案三：将页面图片引入方式由背景图改为img标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E5%9B%9B%EF%BC%9A%E5%88%86%E5%89%B2%E8%BD%AC%E6%8D%A2"><span class="nav-number">2.4.</span> <span class="nav-text">方案四：分割转换</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
