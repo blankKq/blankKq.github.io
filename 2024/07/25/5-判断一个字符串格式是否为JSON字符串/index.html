@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>categories | blank</title>
+    <title>如何判断一个字符串格式是否为JSON字符串 | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="blank的个人博客1" />
     <meta name="keywords" content="" />
@@ -55,6 +55,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -168,14 +172,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>如何判断一个字符串格式是否为JSON字符串</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/25
+        </span>
         
-        
-        
-        <span>
-            <a href="/categories/web%E5%89%8D%E7%AB%AF/" style="background: #00bcd4">
+        <span class="category">
+            <a href="/categories/web%E5%89%8D%E7%AB%AF/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -184,18 +194,55 @@
         </span>
         
         
-        
-        <span>
-            <a href="/categories/%E5%B7%A5%E5%85%B7/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                工具
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/js/" style="color: #ffa2c4">
+                    js
+                </a>
+            </span>
+            
         </span>
         
-        
     </div>
+    
+    <div class="content" v-pre>
+        <p>代码如下：</p>
+<pre><code class="javascript">function isJSON(str) &#123;
+    if (typeof str == &#39;string&#39;) &#123;
+        try &#123;
+            var obj=JSON.parse(str);
+            if(Object.prototype.toString.call(obj) == &#39;[object Object]&#39; &amp;&amp; obj )&#123;
+                return true;
+            &#125;else&#123;
+                return false;
+            &#125;
+
+        &#125; catch(e) &#123;
+            console.log(&#39;error：&#39;+str+&#39;!!!&#39;+e);
+            return false;
+        &#125;
+    &#125;
+    console.log(&#39;It is not a string!&#39;)
+&#125;
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
     
 </div>
 
@@ -227,6 +274,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="blankKq/blankKq.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNTU5OTQ0NDc="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCUxJT84ChGHH"
+    data-mapping="pathname"
+    data-strict=""
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>

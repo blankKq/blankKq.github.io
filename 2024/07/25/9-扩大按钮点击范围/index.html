@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>categories | blank</title>
+    <title>扩大按钮点击范围 | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="blank的个人博客1" />
     <meta name="keywords" content="" />
@@ -55,6 +55,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -168,14 +172,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>扩大按钮点击范围</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/25
+        </span>
         
-        
-        
-        <span>
-            <a href="/categories/web%E5%89%8D%E7%AB%AF/" style="background: #00bcd4">
+        <span class="category">
+            <a href="/categories/web%E5%89%8D%E7%AB%AF/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -184,18 +194,62 @@
         </span>
         
         
-        
-        <span>
-            <a href="/categories/%E5%B7%A5%E5%85%B7/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                工具
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/css/" style="color: #ffa2c4">
+                    css
+                </a>
+            </span>
+            
         </span>
         
-        
     </div>
+    
+    <div class="content" v-pre>
+        <h5 id="css增加元素点击范围"><a href="#css增加元素点击范围" class="headerlink" title="css增加元素点击范围"></a>css增加元素点击范围</h5><p>有时候页面设计按钮较小，或着由于元素所在区域不适合放置大小，可以采用奇淫技巧（css）增加点击事件的触发范围。<br>比如页面中有一个按钮</p>
+<pre><code class="javascript">  &lt;text id=&quot;gl1&quot; bindtap=&quot;&#123;&#123;lettering&#125;&#125;&quot;&gt;&lt;/text&gt;
+</code></pre>
+<p>css代码：</p>
+<pre><code class="javascript"> #gl1&#123;
+    text-align: center;
+    width: 24rpx;
+    height: 24rpx;
+    position: absolute;
+    top: 50%;
+    left: 22rpx;
+    border-left: 4rpx solid #FFFFFF;
+    border-bottom: 4rpx solid #FFFFFF;
+    -webkit-transform: translate(0,-50%) rotate(-135deg);
+    transform: translate(0,-50%) rotate(45deg);
+&#125;
+#gl1::before&#123;
+    content:&quot;&quot;;
+    position:absolute;
+    top:-20rpx;
+    left:-20rpx;
+    bottom:-20rpx;
+    right:-20rpx;
+    &#125;
+</code></pre>
+<p>css中的伪类可以增加元素事件的触发范围，但却可以做到不影响页面元素的排列，这点是伪类的一个实用小技巧</p>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
     
 </div>
 
@@ -227,6 +281,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="blankKq/blankKq.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNTU5OTQ0NDc="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCUxJT84ChGHH"
+    data-mapping="pathname"
+    data-strict=""
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>

@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>categories | blank</title>
+    <title>微信小程序 IOS中new Date()时间格式不兼容问题 | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="blank的个人博客1" />
     <meta name="keywords" content="" />
@@ -55,6 +55,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -168,14 +172,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>微信小程序 IOS中new Date()时间格式不兼容问题</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/25
+        </span>
         
-        
-        
-        <span>
-            <a href="/categories/web%E5%89%8D%E7%AB%AF/" style="background: #00bcd4">
+        <span class="category">
+            <a href="/categories/web%E5%89%8D%E7%AB%AF/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -184,18 +194,68 @@
         </span>
         
         
-        
-        <span>
-            <a href="/categories/%E5%B7%A5%E5%85%B7/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                工具
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/js/" style="color: #03a9f4">
+                    js
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="color: #00bcd4">
+                    微信小程序
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/IOS/" style="color: #00a596">
+                    IOS
+                </a>
+            </span>
+            
         </span>
         
-        
     </div>
+    
+    <div class="content" v-pre>
+        <h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><ul>
+<li>最近在小程序项目中遇到了处理Date时间格式的需求，在Android手机测试是没有发现问题的，但是在IOS上 时间转换出现了错误。</li>
+</ul>
+<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><ul>
+<li>这里主要兼容问题在于Android可以处理 &#x3D;&#x3D;’-‘&#x3D;&#x3D; 与 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D;  ，而IOS只能处理 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D; 的时间格式，具体如下：</li>
+</ul>
+<pre><code class="javascript">    /** 问题描述 */
+   let dateStr1 = &#39;2022-12-12&#39;;
+   let dateStr2 = &#39;2022-12-12 00:00&#39;;
+   let date1 = new Date(dateStr1);  // IOS系统自动转换失败得到null，Android 以正常显示
+   let date2 = new Date(dateStr2);  // IOS 和 Android 都可以正常显示
+
+   /** 解决办法 - 将时间格式转换为 /  */
+   let date3 = new Date(dateStr2.replace(/-/g, &#39;/&#39;));  // 此时 IOS 和 Android 都可以正常显示了
+</code></pre>
+<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><ul>
+<li>这里需要注意的是 当日期格式 中不带有 具体时分秒的时候，IOS并不会出现错误。</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
     
 </div>
 
@@ -227,6 +287,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="blankKq/blankKq.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNTU5OTQ0NDc="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCUxJT84ChGHH"
+    data-mapping="pathname"
+    data-strict=""
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>

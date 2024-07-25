@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>categories | blank</title>
+    <title>git无法连接远程仓库（GitHub） | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="blank的个人博客1" />
     <meta name="keywords" content="" />
@@ -55,6 +55,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -168,25 +172,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/categories/web%E5%89%8D%E7%AB%AF/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                web前端
-            </a>
+            <div class="article">
+    <div>
+        <h1>git无法连接远程仓库（GitHub）</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/25
         </span>
         
-        
-        
-        <span>
-            <a href="/categories/%E5%B7%A5%E5%85%B7/" style="background: #ff7d73">
+        <span class="category">
+            <a href="/categories/%E5%B7%A5%E5%85%B7/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -195,7 +194,68 @@
         </span>
         
         
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/git/" style="color: #ffa2c4">
+                    git
+                </a>
+            </span>
+            
+        </span>
+        
     </div>
+    
+    <div class="content" v-pre>
+        <h5 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h5><ul>
+<li>某一天，开开心心的写完了一篇博客，在向GitHub推送的时候突然报错了，乍一看，报错了，顿时….</li>
+</ul>
+<p><img src="/2024/07/25/8-git%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%EF%BC%88GitHub%EF%BC%89/1.png" alt="在这里插入图片描述"><br>通过查阅资料尝试了几种方法之后解决了，在这做个记录。</p>
+<h6 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h6><p>首先需要检查一下SSH是否能够连接成功，输入以下命令</p>
+<pre><code>ssh -T git@github.com
+</code></pre>
+<p>若还是报这个错ssh: connect to host github.com port 22: Connection timed out就可以使用以下解决办法</p>
+<ol>
+<li>打开git bash 命令行窗口，找到密钥生成位置<pre><code>cd ~/.ssh
+</code></pre>
+ 如果找不到，则需要确认是否生成并配置了ssh</li>
+<li>查看文件是否存在<pre><code>ls
+</code></pre>
+</li>
+<li>若存在则在继续在终端输入以下命令新建一个文件<pre><code>vim config
+</code></pre>
+</li>
+<li>接着输入下面内容<pre><code>Host github.com
+User 注册github的邮箱
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+Port 443
+</code></pre>
+<img src="/2024/07/25/8-git%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%EF%BC%88GitHub%EF%BC%89/2.png" alt="在这里插入图片描述"></li>
+<li>最后:ZZ退出编辑即可</li>
+</ol>
+<h6 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h6><ul>
+<li><code>ssh -T git@github.com</code></li>
+<li>出现提示yes回车即可<br> <img src="/2024/07/25/8-git%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%EF%BC%88GitHub%EF%BC%89/3.png" alt="在这里插入图片描述"><br> 验证就能顺利通过了</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
     
 </div>
 
@@ -227,6 +287,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="blankKq/blankKq.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNTU5OTQ0NDc="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCUxJT84ChGHH"
+    data-mapping="pathname"
+    data-strict=""
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>

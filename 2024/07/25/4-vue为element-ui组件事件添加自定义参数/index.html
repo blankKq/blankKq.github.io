@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>categories | blank</title>
+    <title>如何为element-ui组件定义的事件添加自己的参数 | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="blank的个人博客1" />
     <meta name="keywords" content="" />
@@ -55,6 +55,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -168,14 +172,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>如何为element-ui组件定义的事件添加自己的参数</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/25
+        </span>
         
-        
-        
-        <span>
-            <a href="/categories/web%E5%89%8D%E7%AB%AF/" style="background: #00bcd4">
+        <span class="category">
+            <a href="/categories/web%E5%89%8D%E7%AB%AF/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -184,18 +194,73 @@
         </span>
         
         
-        
-        <span>
-            <a href="/categories/%E5%B7%A5%E5%85%B7/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                工具
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/vue/" style="color: #ffa2c4">
+                    vue
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/element-ui/" style="color: #03a9f4">
+                    element-ui
+                </a>
+            </span>
+            
         </span>
         
-        
     </div>
+    
+    <div class="content" v-pre>
+        <p>我们在使用element-ui组件的时候，该如何为element-ui中定义好的事件添加一些自己的参数呢？</p>
+<p>废话不多说，直接看代码：<br>这是一个简单的应用，在我们选中按钮的时候，需用将他的名字也传递过去</p>
+<pre><code>&lt;template&gt;
+    &lt;div class=&quot;hello&quot;&gt;
+        &lt;div v-for=&quot;(item, index) in items&quot; :key=&quot;index&quot;&gt;
+            &lt;el-radio @change=&quot;(data) =&gt; &#123;getdata(item.name, data)&#125;&quot; v-model=&quot;radio&quot; label=&quot;1&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/el-radio&gt;
+            &lt;el-radio v-model=&quot;radio&quot; label=&quot;2&quot;&gt;&#123;&#123; item.name &#125;&#125;&lt;/el-radio&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      radio: &quot;1&quot;,
+      items: [&#123;name: &#39;lis&#39;&#125;, &#123;name: &#39;13&#39;&#125;]
+    &#125;;
+  &#125;,
+  methods: &#123;
+    getdata(index, data) &#123;
+      console.log(data, index);
+    &#125;
+  &#125;,
+  mounted() &#123;&#125;
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<p>原理：这里形成了闭包，在点击的时候，会将change事件中默认的参数传递到匿名函数里边，然后再获取到这个参数</p>
+<p>补充：可以使用$event 来获取到事件对象e</p>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
     
 </div>
 
@@ -227,6 +292,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="blankKq/blankKq.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNTU5OTQ0NDc="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCUxJT84ChGHH"
+    data-mapping="pathname"
+    data-strict=""
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>

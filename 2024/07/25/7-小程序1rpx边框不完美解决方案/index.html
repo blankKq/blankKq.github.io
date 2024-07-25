@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>categories | blank</title>
+    <title>小程序1rpx边框不完美解决方案 | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="blank的个人博客1" />
     <meta name="keywords" content="" />
@@ -55,6 +55,10 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
 
 
 
@@ -168,14 +172,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>小程序1rpx边框不完美解决方案</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/7/25
+        </span>
         
-        
-        
-        <span>
-            <a href="/categories/web%E5%89%8D%E7%AB%AF/" style="background: #00bcd4">
+        <span class="category">
+            <a href="/categories/web%E5%89%8D%E7%AB%AF/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -184,18 +194,90 @@
         </span>
         
         
-        
-        <span>
-            <a href="/categories/%E5%B7%A5%E5%85%B7/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                工具
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="color: #ff7d73">
+                    微信小程序
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/css/" style="color: #03a9f4">
+                    css
+                </a>
+            </span>
+            
         </span>
         
-        
     </div>
+    
+    <div class="content" v-pre>
+        <h5 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h5><ul>
+<li>在小程序开发中，1rpx边框随处可见，如果只是简单的使用<code>border: 1rpx solid red;</code>的话，在不同的机型上会有不同的表现， IOS机型可能存在边框缺失，安卓边框较粗。</li>
+</ul>
+<h5 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h5><p>首先先看看IOS边框缺失的问题</p>
+<blockquote>
+<p>当父元素的高度为奇数时，容易出现上下边框缺失，同理，当父元素宽度为奇数时，容易出现左右边框缺失</p>
+</blockquote>
+<p>解决办法是在边框内部添加一个1rpx的元素或是伪元素，撑开内部使元素的宽高为偶数</p>
+<p>然而我们发现这种方案在Iphone 6等2倍屏可以生效， 但放在如Iphone X等3倍屏下面就很飘了， 还是经常会出现边框缺失的情况， 这种情况下再去把父元素改为2和3共同的倍数就非常不现实了。</p>
+<p>再回过头看导致边框缺失的具体原因是啥。</p>
+<p>在这之前需要了解下高分屏的物理像素和虚拟像素的概念</p>
+<p>简单来说物理像素是设备的实际像素</p>
+<p>虚拟像素是设备的坐标点， 可以简单理解为css像素</p>
+<p>而rpx类似rem，渲染后实际转换成px之后可能存在小数，在不同的设备上多多少少会存在渲染的问题。而1rpx的问题就更加明显，因为不足1个物理像素的话，在IOS会进行四舍五入，而安卓好像统一向上取整，这也是上面两种设备表现不同的原因。</p>
+<h6 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h6><p>我们采用的方法是采用translate:scale(0.5)的方法对边框进行缩放</p>
+<p>具体的代码如下</p>
+<pre><code>
+.border1rpx, .border1rpx_before&#123;
+  position: relative;
+  border-width: 0rpx !important;
+  padding: 0.5rpx;
+  z-index: 0;
+&#125;
+.border1rpx::after, .border1rpx_before::before&#123;
+  content: &quot;&quot;;
+  border-style: inherit;
+  border-color: inherit;
+  border-radius: inherit;
+  box-sizing: border-box !important;
+  position: absolute;
+  border-width: 2rpx !important;
+  left: 0;
+  top: 0;
+  width: 200% !important;
+  height: 200% !important;
+  transform-origin: 0 0;
+  transform: scale(0.5) !important;
+  z-index: -1;
+&#125;
+.border1rpx-full &#123; margin: -1rpx; &#125;
+</code></pre>
+<ol>
+<li>给.border1rpx的元素设置边框宽度为0</li>
+<li>给::after伪元素宽高为两倍，边框设置2rpx，</li>
+<li>边框其他样式继承元素的设置</li>
+<li>然后再缩放0.5来达到边框为1rpx的效果</li>
+</ol>
+
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
     
 </div>
 
@@ -227,6 +309,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="blankKq/blankKq.github.io"
+    data-repo-id="MDEwOlJlcG9zaXRvcnkxNTU5OTQ0NDc="
+    data-category="Announcements"
+    data-category-id="DIC_kwDOCUxJT84ChGHH"
+    data-mapping="pathname"
+    data-strict=""
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
+
+
+
+
+
     
 </body>
 </html>
