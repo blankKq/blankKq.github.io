@@ -1,3 +1,11 @@
+<!--
+ * @Author: blank 1653571991@qq.com
+ * @Date: 2024-07-23 14:41:40
+ * @LastEditors: blank 1653571991@qq.com
+ * @LastEditTime: 2024-07-25 08:44:15
+ * @FilePath: \blank-blog\themes\particlex\layout\layout.ejs
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <%
     let type = "post";
     if (is_home()) type = "index";
@@ -25,6 +33,16 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
     <link rel="icon" href="<%- url_for(theme.avatar) %>" />
+    <canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas>
+        <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+        <script src="/js/lib/fireworks.min.js"></script>
+        <canvas id="background" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1"></canvas>
+        <script src="/js/lib/background.min.js"></script>
+        <div id="cursor"></div>
+        <link rel="stylesheet" href="/css/cursor.min.css">
+        <script src="/js/lib/cursor.min.js"></script>
+
+
     <%- partial("import", { type }) %>
 </head>
 <body>
