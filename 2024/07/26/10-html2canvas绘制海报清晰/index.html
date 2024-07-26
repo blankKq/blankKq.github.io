@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>微信小程序 IOS中new Date()时间格式不兼容问题 | blank</title>
+    <title>html2canvas绘制海报清晰 | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -174,14 +174,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>微信小程序 IOS中new Date()时间格式不兼容问题</h1>
+        <h1>html2canvas绘制海报清晰</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/7/25
+            2024/7/26
         </span>
         
         <span class="category">
@@ -202,22 +202,15 @@
             
             <span class="tag">
                 
-                <a href="/tags/js/" style="color: #03a9f4">
-                    js
+                <a href="/tags/canvas/" style="color: #03a9f4">
+                    canvas
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="color: #00bcd4">
-                    微信小程序
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/IOS/" style="color: #03a9f4">
-                    IOS
+                <a href="/tags/html2canvas/" style="color: #ffa2c4">
+                    html2canvas
                 </a>
             </span>
             
@@ -226,24 +219,89 @@
     </div>
     
     <div class="content" v-pre>
-        <h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><ul>
-<li>最近在小程序项目中遇到了处理Date时间格式的需求，在Android手机测试是没有发现问题的，但是在IOS上 时间转换出现了错误。</li>
-</ul>
-<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><ul>
-<li>这里主要兼容问题在于Android可以处理 &#x3D;&#x3D;’-‘&#x3D;&#x3D; 与 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D;  ，而IOS只能处理 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D; 的时间格式，具体如下：</li>
-</ul>
-<pre><code class="javascript">    /** 问题描述 */
-   let dateStr1 = &#39;2022-12-12&#39;;
-   let dateStr2 = &#39;2022-12-12 00:00&#39;;
-   let date1 = new Date(dateStr1);  // IOS系统自动转换失败得到null，Android 以正常显示
-   let date2 = new Date(dateStr2);  // IOS 和 Android 都可以正常显示
-
-   /** 解决办法 - 将时间格式转换为 /  */
-   let date3 = new Date(dateStr2.replace(/-/g, &#39;/&#39;));  // 此时 IOS 和 Android 都可以正常显示了
+        <h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>使用html2canvas绘制海报，生成海报比较模糊</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><h5 id="方案一：增大dpi"><a href="#方案一：增大dpi" class="headerlink" title="方案一：增大dpi"></a>方案一：增大dpi</h5><blockquote>
+<p>dpi:DPI是指某些设备分辨率的度量单位。DPI越低，扫描的清晰度越低，DPI越高，清晰度越高。<br>由于受网络传输速度的影响，web上使用的图片都是72dpi，照片使用300dpi或者更高350dpi，会很清晰。</p>
+</blockquote>
+<h5 id="方案二：增大scale"><a href="#方案二：增大scale" class="headerlink" title="方案二：增大scale"></a>方案二：增大scale</h5><blockquote>
+<p>scale会缩放canvas画布，提高&#x2F;减小生成图片分辨率</p>
+</blockquote>
+<pre><code>scale: 3, // 按比例增加分辨率 (2=双倍).
 </code></pre>
-<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><ul>
-<li>这里需要注意的是 当日期格式 中不带有 具体时分秒的时候，IOS并不会出现错误。</li>
-</ul>
+<h5 id="方案三：将页面图片引入方式由背景图改为img标签"><a href="#方案三：将页面图片引入方式由背景图改为img标签" class="headerlink" title="方案三：将页面图片引入方式由背景图改为img标签"></a>方案三：将页面图片引入方式由背景图改为img标签</h5><h5 id="方案四：分割转换"><a href="#方案四：分割转换" class="headerlink" title="方案四：分割转换"></a>方案四：分割转换</h5><blockquote>
+<p>将目标元素分割为多个小块，并分别进行转换，最后将分割的图片交给后端把图片合成起来</p>
+</blockquote>
+<pre><code>    /**
+     * 绘制海报
+     * @param &#123;*&#125; picDom
+     * @param &#123;*&#125; picRef
+     */
+    createImgDebris(picDom, picRef) &#123;
+      return new Promise(resolve =&gt; &#123;
+        var targetDom = document.getElementById(picDom);
+        const setup = &#123;
+          useCORS: true, // 使用跨域
+          height: targetDom.scrollHeight - 1, //canvas高, 高度减 1 是为了解决底部出现白线问题
+          width: targetDom.scrollWidth, //canvas宽
+          scale: this.isPad ? 6 : 7.5, //按比例增加分辨率 (2=双倍).
+          // scale: list.length &gt; 25 ? 4.5 : 5.2, //按比例增加分辨率 (2=双倍).
+          // dpi: window.devicePixelRatio * 2 //设备像素比
+          dpi: window.devicePixelRatio * 2 //设备像素比
+        &#125;;
+        html2canvas(this.$refs[picRef], setup).then(canvas =&gt; &#123;
+          let blockDataURL = canvas.toDataURL(&quot;image/jpg&quot;);
+          resolve(blockDataURL);
+        &#125;);
+      &#125;);
+    &#125;,
+    
+    /**
+     * 海报生成图片
+     */
+    creatImg(type) &#123;
+      let promiseList = [
+        this.createImgDebris(&quot;imgBoxBanner&quot;, &quot;pictureBanner&quot;),
+        this.createImgDebris(&quot;imgBoxBox50&quot;, &quot;pictureBox50&quot;)
+      ];
+      Promise.all(promiseList).then(resList =&gt; &#123;
+        this.uploadImg(resList, &quot;image/jpg&quot;)
+      &#125;);
+    &#125;,
+</code></pre>
+<p>合并上传</p>
+<pre><code>    /**
+     * 合并上传图片
+     * @param &#123;*&#125; imgList
+     * @param &#123;*&#125; imgType
+     */
+    async uploadImg(imgList, imgType = &quot;image/jpg&quot;) &#123;
+      return new Promise((resolve, reject) =&gt; &#123;
+        try &#123;
+          // 创建 FormData 对象并添加图像数据
+          const formData = new FormData();
+          for (let len = imgList.length, i = 0; i &lt; len; i++) &#123;
+            let img = imgList[i];
+            const binaryImageData = atob(img.split(&quot;,&quot;)[1]);
+            // 创建一个缓冲数组来存储二进制数据
+            const buffer = new Uint8Array(binaryImageData.length);
+            // 将二进制数据复制到缓冲数组中
+            for (let i = 0; i &lt; binaryImageData.length; i++) &#123;
+              buffer[i] = binaryImageData.charCodeAt(i);
+            &#125;
+            // 将缓冲数组转换为 Blob 对象
+            const blob = new Blob([buffer], &#123; type: imgType &#125;);
+            formData.append(&quot;files&quot;, blob, imgType);
+          &#125;
+          mergeMaterialPost(formData).then(res =&gt; &#123;
+            resolve(res);
+          &#125;);
+        &#125; catch (error) &#123;
+          reject(error);
+        &#125;
+      &#125;);
+    &#125;,
+
+</code></pre>
 
     </div>
     

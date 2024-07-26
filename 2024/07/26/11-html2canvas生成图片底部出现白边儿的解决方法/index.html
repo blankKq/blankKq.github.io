@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>微信小程序 IOS中new Date()时间格式不兼容问题 | blank</title>
+    <title>html2canvas生成图片底部出现白边儿的解决方法 | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -174,14 +174,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>微信小程序 IOS中new Date()时间格式不兼容问题</h1>
+        <h1>html2canvas生成图片底部出现白边儿的解决方法</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/7/25
+            2024/7/26
         </span>
         
         <span class="category">
@@ -202,22 +202,15 @@
             
             <span class="tag">
                 
-                <a href="/tags/js/" style="color: #03a9f4">
-                    js
+                <a href="/tags/canvas/" style="color: #ffa2c4">
+                    canvas
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="color: #00bcd4">
-                    微信小程序
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/IOS/" style="color: #03a9f4">
-                    IOS
+                <a href="/tags/html2canvas/" style="color: #03a9f4">
+                    html2canvas
                 </a>
             </span>
             
@@ -226,24 +219,21 @@
     </div>
     
     <div class="content" v-pre>
-        <h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><ul>
-<li>最近在小程序项目中遇到了处理Date时间格式的需求，在Android手机测试是没有发现问题的，但是在IOS上 时间转换出现了错误。</li>
-</ul>
-<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><ul>
-<li>这里主要兼容问题在于Android可以处理 &#x3D;&#x3D;’-‘&#x3D;&#x3D; 与 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D;  ，而IOS只能处理 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D; 的时间格式，具体如下：</li>
-</ul>
-<pre><code class="javascript">    /** 问题描述 */
-   let dateStr1 = &#39;2022-12-12&#39;;
-   let dateStr2 = &#39;2022-12-12 00:00&#39;;
-   let date1 = new Date(dateStr1);  // IOS系统自动转换失败得到null，Android 以正常显示
-   let date2 = new Date(dateStr2);  // IOS 和 Android 都可以正常显示
-
-   /** 解决办法 - 将时间格式转换为 /  */
-   let date3 = new Date(dateStr2.replace(/-/g, &#39;/&#39;));  // 此时 IOS 和 Android 都可以正常显示了
+        <h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><p>使用html2canvas的时候，生成的图片底部出现了白边</p>
+<h4 id="产生白边原因"><a href="#产生白边原因" class="headerlink" title="产生白边原因"></a>产生白边原因</h4><p>可能是由于像素渲染问题导致的。移动设备的屏幕像素密度（Pixel Density）较高，有时会导致在两个相邻元素之间出现细小的间隙或白线。</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>将canvas画布高度调小1像素</p>
+<pre><code>var targetDom = document.getElementById(picDom);
+const setup = &#123;
+    useCORS: true, // 使用跨域
+    height: targetDom.scrollHeight - 1, //canvas高, 高度减 1 是为了解决底部出现白线问题
+    width: targetDom.scrollWidth, //canvas宽
+    scale: this.isPad ? 6 : 7.5, //按比例增加分辨率 (2=双倍).
+    dpi: window.devicePixelRatio * 2 //设备像素比
+ &#125;;
+html2canvas(this.$refs[picRef], setup).then(canvas =&gt; &#123;
+    let blockDataURL = canvas.toDataURL(&quot;image/jpg&quot;);
+&#125;);
 </code></pre>
-<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><ul>
-<li>这里需要注意的是 当日期格式 中不带有 具体时分秒的时候，IOS并不会出现错误。</li>
-</ul>
 
     </div>
     

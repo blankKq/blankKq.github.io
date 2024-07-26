@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>微信小程序 IOS中new Date()时间格式不兼容问题 | blank</title>
+    <title>小程序 - 文件预览 | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -174,14 +174,14 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>微信小程序 IOS中new Date()时间格式不兼容问题</h1>
+        <h1>小程序 - 文件预览</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/7/25
+            2024/7/26
         </span>
         
         <span class="category">
@@ -202,22 +202,8 @@
             
             <span class="tag">
                 
-                <a href="/tags/js/" style="color: #03a9f4">
-                    js
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="color: #00bcd4">
-                    微信小程序
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/IOS/" style="color: #03a9f4">
-                    IOS
+                <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="color: #ffa2c4">
+                    小程序
                 </a>
             </span>
             
@@ -226,24 +212,80 @@
     </div>
     
     <div class="content" v-pre>
-        <h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><ul>
-<li>最近在小程序项目中遇到了处理Date时间格式的需求，在Android手机测试是没有发现问题的，但是在IOS上 时间转换出现了错误。</li>
-</ul>
-<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><ul>
-<li>这里主要兼容问题在于Android可以处理 &#x3D;&#x3D;’-‘&#x3D;&#x3D; 与 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D;  ，而IOS只能处理 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D; 的时间格式，具体如下：</li>
-</ul>
-<pre><code class="javascript">    /** 问题描述 */
-   let dateStr1 = &#39;2022-12-12&#39;;
-   let dateStr2 = &#39;2022-12-12 00:00&#39;;
-   let date1 = new Date(dateStr1);  // IOS系统自动转换失败得到null，Android 以正常显示
-   let date2 = new Date(dateStr2);  // IOS 和 Android 都可以正常显示
-
-   /** 解决办法 - 将时间格式转换为 /  */
-   let date3 = new Date(dateStr2.replace(/-/g, &#39;/&#39;));  // 此时 IOS 和 Android 都可以正常显示了
+        <h4 id="小程序文件预览"><a href="#小程序文件预览" class="headerlink" title="小程序文件预览"></a>小程序文件预览</h4><pre><code>/** 预览 - txt文本 */
+  viewTxt(path) &#123;
+    let fs = wx.getFileSystemManager();
+    let _this = this;
+    fs.readFile(&#123;
+      filePath: path,
+      encoding: &quot;utf8&quot;,
+      position: 0,
+      success(res) &#123;
+        _this.setData(&#123;
+          setNoRefresh: true
+        &#125;);
+        wx.navigateTo(&#123;
+          url: `/pages/view-txt/view-txt?content=$&#123;res.data&#125;`
+        &#125;);
+      &#125;,
+      fail(res) &#123;
+        showToast(&quot;文件打开失败&quot;);
+        console.error(res);
+      &#125;
+    &#125;);
+  &#125;,
+  
+  /** 预览 - 文件 */
+  viewFile(path, type) &#123;
+    wx.openDocument(&#123;
+      filePath: path,
+      // 文档类型
+      fileType: type,
+      success(res) &#123;
+        console.log(&quot;打开文档成功&quot;, res);
+      &#125;,
+      complete(err) &#123;
+        console.log(&quot;打开文档成功2&quot;, err);
+      &#125;,
+      fail() &#123;
+        showToast(&quot;文件打开失败&quot;);
+      &#125;
+    &#125;);
+  &#125;,
+  
+  /** 在线预览文档 */
+  openDocument(e) &#123;
+    let &#123; item &#125; = e.detail;
+    let _this = this;
+    wx.downloadFile(&#123;
+      url: item.materialUrl,
+      success(res) &#123;
+        const path = res.tempFilePath;
+        if (item.materialUrl.endsWith(&quot;.txt&quot;)) &#123;
+          _this.viewTxt(path);
+        &#125; else &#123;
+          _this.viewFile(path, item.type);
+        &#125;
+      &#125;,
+      fail(err) &#123;
+        if (err.errMsg.includes(&quot;downloadFile:fail file data is empty&quot;)) &#123;
+          wx.navigateTo(&#123;
+            url: `/pages/view-txt/view-txt?content=`
+          &#125;);
+        &#125; else &#123;
+          showToast(&quot;文件打开失败&quot;);
+        &#125;
+      &#125;
+    &#125;);
+  &#125;,
 </code></pre>
-<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><ul>
-<li>这里需要注意的是 当日期格式 中不带有 具体时分秒的时候，IOS并不会出现错误。</li>
-</ul>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ol>
+<li>wx.openDocument方法 ios 不支持打开txt文本，需单单独处理</li>
+<li>wx.downloadFile ios下载空文件 报错：downloadFile:fail file data is empty， 需根据fail报错信息单独处理</li>
+</ol>
 
     </div>
     

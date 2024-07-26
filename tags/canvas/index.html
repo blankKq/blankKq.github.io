@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>微信小程序 IOS中new Date()时间格式不兼容问题 | blank</title>
+    <title>Tags: canvas | blank</title>
     <meta name="author" content="blank" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -55,10 +55,6 @@
 
 
 <script src="/js/lib/preview.js"></script>
-
-
-
-
 
 
 
@@ -172,90 +168,225 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>微信小程序 IOS中new Date()时间格式不兼容问题</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/7/25
-        </span>
+            <div id="archives">
+    
+    <div class="categories-tags">
         
-        <span class="category">
-            <a href="/categories/web%E5%89%8D%E7%AB%AF/">
+        
+        
+        <span>
+            <a href="/tags/canvas/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
                 <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                    <i class="fa-solid fa-tags fa-fw"></i>
                 </span>
-                web前端
+                canvas
             </a>
         </span>
         
         
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            
-            <span class="tag">
-                
-                <a href="/tags/js/" style="color: #03a9f4">
-                    js
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="color: #00bcd4">
-                    微信小程序
-                </a>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/IOS/" style="color: #03a9f4">
-                    IOS
-                </a>
-            </span>
-            
+        
+        
+        
+        <span>
+            <a href="/tags/html2canvas/" style="background: #ff7d73">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                html2canvas
+            </a>
         </span>
+        
+        
+        
+        <span>
+            <a href="/tags/es6/" style="background: #03a9f4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                es6
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/js/" style="background: #ff7d73">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                js
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="background: #00bcd4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                小程序
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/vue/" style="background: #03a9f4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                vue
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/element-ui/" style="background: #ffa2c4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                element-ui
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="background: #00bcd4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                微信小程序
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/IOS/" style="background: #03a9f4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                IOS
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/css/" style="background: #00a596">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                css
+            </a>
+        </span>
+        
+        
+        
+        <span>
+            <a href="/tags/git/" style="background: #03a9f4">
+                <span class="icon">
+                    <i class="fa-solid fa-tags fa-fw"></i>
+                </span>
+                git
+            </a>
+        </span>
+        
         
     </div>
     
-    <div class="content" v-pre>
-        <h5 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h5><ul>
-<li>最近在小程序项目中遇到了处理Date时间格式的需求，在Android手机测试是没有发现问题的，但是在IOS上 时间转换出现了错误。</li>
-</ul>
-<h5 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h5><ul>
-<li>这里主要兼容问题在于Android可以处理 &#x3D;&#x3D;’-‘&#x3D;&#x3D; 与 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D;  ，而IOS只能处理 &#x3D;&#x3D;’&#x2F;‘&#x3D;&#x3D; 的时间格式，具体如下：</li>
-</ul>
-<pre><code class="javascript">    /** 问题描述 */
-   let dateStr1 = &#39;2022-12-12&#39;;
-   let dateStr2 = &#39;2022-12-12 00:00&#39;;
-   let date1 = new Date(dateStr1);  // IOS系统自动转换失败得到null，Android 以正常显示
-   let date2 = new Date(dateStr2);  // IOS 和 Android 都可以正常显示
-
-   /** 解决办法 - 将时间格式转换为 /  */
-   let date3 = new Date(dateStr2.replace(/-/g, &#39;/&#39;));  // 此时 IOS 和 Android 都可以正常显示了
-</code></pre>
-<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><ul>
-<li>这里需要注意的是 当日期格式 中不带有 具体时分秒的时候，IOS并不会出现错误。</li>
-</ul>
-
+    <div class="timeline">
+        <div class="timeline-tail"></div>
+        <div class="timeline-content">
+            <div class="item-time">2024/7/26</div>
+            <a href="/2024/07/26/11-html2canvas%E7%94%9F%E6%88%90%E5%9B%BE%E7%89%87%E5%BA%95%E9%83%A8%E5%87%BA%E7%8E%B0%E7%99%BD%E8%BE%B9%E5%84%BF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+                <h3>html2canvas生成图片底部出现白边儿的解决方法</h3>
+            </a>
+            <div class="info">
+                
+                <span class="category">
+                    <a href="/categories/web%E5%89%8D%E7%AB%AF/">
+                        <span class="icon">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </span>
+                        web前端
+                    </a>
+                </span>
+                
+                
+                <span class="tags">
+                    <span class="icon">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </span>
+                    
+                    
+                    <span class="tag">
+                        
+                        <a href="/tags/canvas/" style="color: #ff7d73">
+                            canvas
+                        </a>
+                    </span>
+                    
+                    <span class="tag">
+                        
+                        <a href="/tags/html2canvas/" style="color: #ffa2c4">
+                            html2canvas
+                        </a>
+                    </span>
+                    
+                </span>
+                
+            </div>
+        </div>
     </div>
     
-    
-    
-    
-    <div id="comment">
-        <div id="giscus-container" class="giscus"></div>
+    <div class="timeline">
+        <div class="timeline-tail"></div>
+        <div class="timeline-content">
+            <div class="item-time">2024/7/26</div>
+            <a href="/2024/07/26/10-html2canvas%E7%BB%98%E5%88%B6%E6%B5%B7%E6%8A%A5%E6%B8%85%E6%99%B0/">
+                <h3>html2canvas绘制海报清晰</h3>
+            </a>
+            <div class="info">
+                
+                <span class="category">
+                    <a href="/categories/web%E5%89%8D%E7%AB%AF/">
+                        <span class="icon">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </span>
+                        web前端
+                    </a>
+                </span>
+                
+                
+                <span class="tags">
+                    <span class="icon">
+                        <i class="fa-solid fa-tags fa-fw"></i>
+                    </span>
+                    
+                    
+                    <span class="tag">
+                        
+                        <a href="/tags/canvas/" style="color: #ffa2c4">
+                            canvas
+                        </a>
+                    </span>
+                    
+                    <span class="tag">
+                        
+                        <a href="/tags/html2canvas/" style="color: #00a596">
+                            html2canvas
+                        </a>
+                    </span>
+                    
+                </span>
+                
+            </div>
+        </div>
     </div>
-    
-    
-    
     
 </div>
 
@@ -287,29 +418,6 @@
         
     </div>
     <script src="/js/main.js"></script>
-    
-    
-<script
-    src="https://giscus.app/client.js"
-    data-repo="blankKq/blankKq.github.io"
-    data-repo-id="MDEwOlJlcG9zaXRvcnkxNTU5OTQ0NDc="
-    data-category="Announcements"
-    data-category-id="DIC_kwDOCUxJT84ChGHH"
-    data-mapping="pathname"
-    data-strict=""
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    crossorigin
-    async
-></script>
-
-
-
-
-
     
 </body>
 </html>
