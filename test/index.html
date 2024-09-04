@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./statics/js/jquery.min.js"></script>
+    <script src="./statics/js/PostCSS.js"></script>
+    <style>
+        *, .html, body {
+            padding: 0;
+            margin: 0;
+        }
+        .normal-color {
+            color: #3DB269;
+        }
+        .err-color {
+            color: #E24452;
+        }
+        .text-c {
+            text-align: center;
+        }
+        .text-l {
+            text-align: left;
+        }
+        .text-r {
+            text-align: right;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            /* background: #f0f2f5; */
+            display: flex;
+            flex-direction: column;
+        }
+        .container header {
+            width: 100%;
+            height: 44rem;
+            padding: 0 15rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+        .container header .left img {
+            width: 11.62rem;
+            height: 20rem;
+        }
+        .container header .right img {
+            width: 24rem;
+            height: 24rem;
+        }
+        .box {
+            flex: 1;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .box .search-box {
+            padding: 12rem 16rem 0;
+            border-bottom: 1rem solid #EBEBEB;
+        }
+        .box .search-box .top {
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 600;
+            font-size: 26rem;
+            color: #162128;
+            line-height: 37rem;
+            text-align: left;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+        }
+        .box .search-box img {
+            margin-left: 9rem;
+            width: 8rem;
+            height: 7rem;
+        }
+        .box .search-box .tab-list {
+            padding: 12rem 0 11rem;
+            display: flex;
+            overflow: auto;
+            position: relative;
+        }
+        .box .search-box .tab-list .tab-item {
+            margin-right: 16rem;
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 400;
+            font-size: 16rem;
+            color: #878C90;
+            line-height: 22rem;
+            text-align: left;
+            font-style: normal;
+            position: relative;
+        }
+        .box .search-box .tab-list .tab-item.active {
+            color: #162128;
+        }
+        .box .search-box .tab-list .active .line {
+            position: absolute;
+            width: 100%;
+            height: 2rem;
+            background: #E2AC0C;
+            border-radius: 1rem;
+            bottom: -11rem;
+        }
+        .box .list {
+            flex: 1;
+            overflow: auto;
+        }
+        .box .list .item {
+            padding: 24rem 0;
+            border-bottom: 2px solid #E9E9E9;
+        }
+        .box .list .item .title {
+            padding: 0 13rem 0 17rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .box .list .item .title .name {
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 500;
+            font-size: 14rem;
+            color: #111111;
+            line-height: 20rem;
+            text-align: left;
+            font-style: normal;
+        }
+        .box .list .item .title .share {
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 500;
+            font-size: 12rem;
+            color: #111111;
+            line-height: 17rem;
+            text-align: left;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+        }
+        .box .list .item .title .share img {
+            width: 14rem;
+            height: 14rem;
+            margin-left: 8rem;
+        }
+        .box .list .item .tag-list {
+            padding: 8rem 16rem 0;
+            display: flex;
+            align-items: center;
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 17px;
+            text-align: left;
+            font-style: normal;
+        }
+        .box .list .item .tag-list img {
+            height: 20rem;
+            margin-right: 12rem;
+        }
+        .box .list .item .data  {
+            padding: 0 15rem 0 18rem;
+        }
+        .box .list .item .data .data-item {
+            padding-top: 16rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .box .list .item .data .data-item .title-name {
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 500;
+            font-size: 12rem;
+            color: #75737E;
+            line-height: 17rem;
+            font-style: normal;
+        }
+        .box .list .item .data .data-item .title-name img {
+            height: 12rem;
+            position: relative;
+            top: 1rem;
+        }
+        .box .list .item .data .data-item .vlaue {
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 500;
+            font-size: 14rem;
+            line-height: 20rem;
+            font-style: normal;
+            padding-top: 4rem;
+        }
+        .time-content {
+            padding: 0 15rem 0 17rem;
+        }
+        .time-content .time-item {
+            padding-top: 18rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .time-content .time-item .label {
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 500;
+            font-size: 12px;
+            color: #75737E;
+            line-height: 17px;
+            text-align: left;
+            font-style: normal;
+        }
+        .time-content .time-item .time {
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 500;
+            font-size: 12px;
+            color: #151515;
+            line-height: 17px;
+            text-align: left;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="left">
+                <img src="./statics/images/back.png" alt="">
+            </div>
+            <div class="right">
+                <img src="./statics/images/search.png" alt="">
+            </div>
+        </header>
+        <div class="box">
+            <div class="search-box">
+                <div class="top">
+                    <span>全部</span>
+                    <img src="./statics/images/triangle.png" alt="">
+                </div>
+                <div class="tab-list">
+                    <div class="tab-item">当前委托</div>
+                    <div class="tab-item">历史委托</div>
+                    <div class="tab-item active">
+                        历史仓位
+                        <div class="line"></div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <div class="title">
+                        <div class="name">BTC/USDT</div>
+                        <div class="share">
+                            <span>全部平仓</span>
+                            <img class="share-btn" src="./statics/images/share.png" alt="">
+                        </div>
+                    </div>
+                    <div class="tag-list">
+                        <img src="./statics/images/tag2.png" alt="">
+                        <img src="./statics/images/tag1.png" alt="">
+                        <span class="normal-color">50X</span>
+                    </div>
+                    <div class="data">
+                        <div class="data-item">
+                            <div class="text-l" style="width: 118rem;">
+                                <div class="title-name">开仓均价</div>
+                                <div class="vlaue">58479.5</div>
+                            </div>
+                            <div class="text-l" style="width: 140rem;">
+                                <div class="title-name">已实现盈亏
+                                    <img src="./statics/images/usdt.png" alt="">
+                                </div>
+                                <div class="vlaue">1450.8000</div>
+                            </div>
+                            <div class="text-r" style="flex: 1">
+                                <div class="title-name">持仓量
+                                    <img src="./statics/images/sol.png" alt="">
+                                </div>
+                                <div class="vlaue">1450.8000</div>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <div class="text-l" style="width: 118rem;">
+                                <div class="title-name">开仓均价</div>
+                                <div class="vlaue">58963.1</div>
+                            </div>
+                            <div class="text-l" style="width: 140rem;">
+                                <div class="title-name">收益率</div>
+                                <div class="vlaue normal-color">41.35%</div>
+                            </div>
+                            <div class="text-r" style="flex: 1">
+                                <div class="title-name">平仓量</div>
+                                <div class="vlaue">3.000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time-content">
+                        <div class="time-item">
+                            <div class="label">开仓时间</div>
+                            <div class="time">2024-08-28 23:35:32</div>
+                        </div>
+                        <div class="time-item">
+                            <div class="label">全部平完时间</div>
+                            <div class="time">2024-08-28 23:58:34</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <div class="name">BTC/USDT</div>
+                        <div class="share">
+                            <span>全部平仓</span>
+                            <img class="share-btn" src="./statics/images/share.png" alt="">
+                        </div>
+                    </div>
+                    <div class="tag-list">
+                        <img src="./statics/images/tag3.png" alt="">
+                        <img src="./statics/images/tag1.png" alt="">
+                        <span class="err-color">50X</span>
+                    </div>
+                    <div class="data">
+                        <div class="data-item">
+                            <div class="text-l" style="width: 118rem;">
+                                <div class="title-name">开仓均价</div>
+                                <div class="vlaue">58479.5</div>
+                            </div>
+                            <div class="text-l" style="width: 140rem;">
+                                <div class="title-name">已实现盈亏
+                                    <img src="./statics/images/usdt.png" alt="">
+                                </div>
+                                <div class="vlaue">1450.8000</div>
+                            </div>
+                            <div class="text-r" style="flex: 1">
+                                <div class="title-name">持仓量
+                                    <img src="./statics/images/btc.png" alt="">
+                                </div>
+                                <div class="vlaue">1450.8000</div>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <div class="text-l" style="width: 118rem;">
+                                <div class="title-name">开仓均价</div>
+                                <div class="vlaue">58963.1</div>
+                            </div>
+                            <div class="text-l" style="width: 140rem;">
+                                <div class="title-name">收益率</div>
+                                <div class="vlaue normal-color">41.35%</div>
+                            </div>
+                            <div class="text-r" style="flex: 1">
+                                <div class="title-name">平仓量
+                                    <img src="./statics/images/btc.png" alt="">
+                                </div>
+                                <div class="vlaue">3.000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time-content">
+                        <div class="time-item">
+                            <div class="label">开仓时间</div>
+                            <div class="time">2024-08-28 23:35:32</div>
+                        </div>
+                        <div class="time-item">
+                            <div class="label">全部平完时间</div>
+                            <div class="time">2024-08-28 23:58:34</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <div class="name">BTC/USDT</div>
+                        <div class="share">
+                            <span>全部平仓</span>
+                            <img class="share-btn" src="./statics/images/share.png" alt="">
+                        </div>
+                    </div>
+                    <div class="tag-list">
+                        <img src="./statics/images/tag2.png" alt="">
+                        <img src="./statics/images/tag1.png" alt="">
+                        <span class="normal-color">50X</span>
+                    </div>
+                    <div class="data">
+                        <div class="data-item">
+                            <div class="text-l" style="width: 118rem;">
+                                <div class="title-name">开仓均价</div>
+                                <div class="vlaue">58479.5</div>
+                            </div>
+                            <div class="text-l" style="width: 140rem;">
+                                <div class="title-name">已实现盈亏</div>
+                                <div class="vlaue">1450.8000</div>
+                            </div>
+                            <div class="text-r" style="flex: 1">
+                                <div class="title-name">持仓量</div>
+                                <div class="vlaue">1450.8000</div>
+                            </div>
+                        </div>
+                        <div class="data-item">
+                            <div class="text-l" style="width: 118rem;">
+                                <div class="title-name">开仓均价</div>
+                                <div class="vlaue">58963.1</div>
+                            </div>
+                            <div class="text-l" style="width: 140rem;">
+                                <div class="title-name">收益率</div>
+                                <div class="vlaue normal-color">41.35%</div>
+                            </div>
+                            <div class="text-r" style="flex: 1">
+                                <div class="title-name">平仓量</div>
+                                <div class="vlaue">3.000</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time-content">
+                        <div class="time-item">
+                            <div class="label">开仓时间</div>
+                            <div class="time">2024-08-28 23:35:32</div>
+                        </div>
+                        <div class="time-item">
+                            <div class="label">全部平完时间</div>
+                            <div class="time">2024-08-28 23:58:34</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(".share-btn").click(function(e){
+            window.location.href = window.location.origin + "test/share.html";
+            e.stopPropagation();   //表示阻止向父元素冒泡
+            e.preventDefault();     //阻止 方法阻止元素发生默认的行为（例如，当点击提交按钮时阻止对表单的提交或者a标签）。
+        });
+    </script>
+</body>
+</html>
